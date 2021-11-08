@@ -11,6 +11,7 @@ package Model;
  */
 public class DivisiGame {
     private String Divisi;
+    private String games;
 
     public DivisiGame(String Divisi) {
         this.Divisi = Divisi;
