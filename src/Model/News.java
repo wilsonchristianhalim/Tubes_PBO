@@ -14,6 +14,7 @@ public class News {
     private String Title_News;
     private String Content_News;
     private String Date_News;
+    private String asalKetik;
 
     public News(String ID_News, String Title_News, String Content_News, String Date_News) {
         this.ID_News = ID_News;
