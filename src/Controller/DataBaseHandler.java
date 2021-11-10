@@ -6,57 +6,46 @@
 package Controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.TimeZone;
-import javax.swing.JOptionPane;
+import java.sql.SQLException;
 /**
  *
  * @author Wilson
  */
 public class DataBaseHandler {
-    public Connection con;
-    private String driver = "http://localhost/phpmyadmin/db_structure.php?server=1&db=db_esport";
-//    private String url = "jdbc:mysql://localhost/db_test";
-    private String url = "jdbc:mysql://localhost/db_test?serverTimezone=" + TimeZone.getDefault().getID();
-    private String username = "root";
-    private String password = "";
-
-    private Connection logOn() {
-        try {
-            //Load JDBC Driver
-            Class.forName(driver).newInstance();
-            //Buat Object Connection
-            con = DriverManager.getConnection(url, username, password);
-        } catch (Exception ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getLocalizedMessage());
-            JOptionPane.showMessageDialog(null, "Error Ocurred when login" + ex);
+   private static String server = "http://localhost/phpmyadmin/db_structure.php?server=1&db=db_esport";
+    private static String username = "root";
+    private static String password = "";
+    private static Connection connection;
+    
+    public static Connection getConnection(){
+        if(connection == null){
+            connection = logOn();
         }
-        return con;
+        return connection;
     }
-
-    private void logOff() {
-        try {
-            //tutup koneksi
-            con.close();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error Ocurred when login" + ex);
+    
+    private static Connection logOn(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            System.out.println("Koneksi Sukses");
+            return DriverManager.getConnection(server, username,password);
+        }catch(SQLException e){
+            e.printStackTrace(System.err);
+            System.out.println("Koneksi gagal "+e.toString());
+        }catch(ClassNotFoundException ex){
+            ex.printStackTrace(System.err);
+            System.out.println("JDBC.ODBC driver tidak ditemukan");
         }
+        return null;
     }
-
-    public void connect() {
-        try {
-            con = logOn();
-        } catch (Exception ex) {
-            System.out.println("Error occured when connecting to database");
-        }
-    }
-
-    public void disconnect() {
-        try {
-            logOff();
-        } catch (Exception ex) {
-            System.out.println("Error occured when connecting to database");
+    
+    private static void logOff(){
+        try{
+            connection.close();
+            System.out.println("KOneksi close");
+        }catch(Exception e){
+            e.printStackTrace(System.err);
         }
     }
 }

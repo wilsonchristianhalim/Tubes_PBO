@@ -4,25 +4,15 @@
  * and open the template in the editor.
  */
 package Model;
-<<<<<<< Updated upstream
-
-=======
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
->>>>>>> Stashed changes
+import javax.swing.*;
 /**
  *
  * @author Wilson
  */
 public class Company {
-<<<<<<< Updated upstream
-    
-=======
     private ArrayList <Contact> contact = new ArrayList<>();
     private ArrayList <Partner> partner = new ArrayList<>();
-
-    public Company() {
-    }
 
     public ArrayList<Contact> getContact() {
         return contact;
@@ -45,21 +35,7 @@ public class Company {
         return "Company{" + "contact=" + contact + ", partner=" + partner + '}';
     }
     
-    public void AddContact(String id_contact, String contact_name){
+    public void PrintContact(){
         
     }
-    
-    public void DeleteContact(String contact_name){
-        boolean found = false;
-        for (int i = 0; i < contact.size(); i++) {
-            if (contact.get(i).getContact_Name().equals(contact_name)) {
-                found=true;
-                contact.remove(i);
-            }
-        }
-        if (!found) {
-            JOptionPane.showMessageDialog(null, "Contact Tidak Ditemukan");
-        }
-    }
->>>>>>> Stashed changes
 }
