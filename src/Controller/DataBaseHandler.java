@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class DataBaseHandler {
     public Connection con;
-    private String driver = "http://localhost/phpmyadmin/db_structure.php?server=1&db=db_esport";
-//    private String url = "jdbc:mysql://localhost/db_test";
-    private String url = "jdbc:mysql://localhost/db_test?serverTimezone=" + TimeZone.getDefault().getID();
+    private String driver = "com.mysql.cj.jdbc.Driver";
+    private String url = "jdbc:mysql://localhost/db_esport";
+
     private String username = "root";
     private String password = "";
 
