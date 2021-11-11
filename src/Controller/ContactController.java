@@ -14,7 +14,7 @@ import model.*;
  * @author Wilson
  */
 public class ContactController {
-    public ArrayList <Contact> showContact(){
+    public static ArrayList <Contact> showContact(){
         ArrayList <Contact> listcontact = new ArrayList<>();
         String query = "select*from contact";
         try{
@@ -30,6 +30,27 @@ public class ContactController {
             ex.printStackTrace();
         }
         return listcontact;
+    }
+    
+    public void addContact(String id_contact, String contact_name){
+        showContact().add(id_contact, contact_name);
+    }
+    
+    public void deleteContact(String inputname){
+        boolean found = false;
+        ArrayList <Contact> listcontact = new ArrayList<>();
+        for (int i = 0; i < listcontact.size(); i++) {
+            if (listcontact.Contact_Name.equals(inputname)) {
+                listcontact.remove(listcontact);
+            }
+        }
+    }
+    
+    public void printContact(){
+        ArrayList <Contact> listcontact = new ArrayList<>();
+        for (int i = 0; i < listcontact.size(); i++) {
+            
+        }
     }
     
 }
