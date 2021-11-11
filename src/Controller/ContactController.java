@@ -14,7 +14,7 @@ import model.*;
  * @author Wilson
  */
 public class ContactController {
-    public static ArrayList <Contact> showContact(){
+    public ArrayList <Contact> showContact(){
         ArrayList <Contact> listcontact = new ArrayList<>();
         String query = "select*from contact";
         try{
@@ -31,4 +31,5 @@ public class ContactController {
         }
         return listcontact;
     }
+    
 }

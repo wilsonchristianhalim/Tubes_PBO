@@ -17,5 +17,8 @@ public class ContactView extends JFrame {
         setSize(200,200);
         setLayout(null);
         setTitle("Cotact");
+        for (int i = 0; i < ContactController.showContact().; i++) {
+            
+        }
     }
 }
