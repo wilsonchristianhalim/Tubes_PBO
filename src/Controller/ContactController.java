@@ -14,7 +14,7 @@ import model.*;
  * @author Wilson
  */
 public class ContactController {
-    public static ArrayList <Contact> showContact(){
+    public ArrayList <Contact> showContact(){
         ArrayList <Contact> listcontact = new ArrayList<>();
         String query = "select*from contact";
         try{
@@ -46,11 +46,10 @@ public class ContactController {
         }
     }
     
-    public void printContact(){
+    public String printContact(int i){
         ArrayList <Contact> listcontact = new ArrayList<>();
-        for (int i = 0; i < listcontact.size(); i++) {
-            
-        }
+        String contact = listcontact.get(i).getID_Contact+" - "+listcontact.get(i).getContact_Name;
+        return contact;
     }
     
 }
