@@ -34,7 +34,7 @@ public class Controller {
     }
 
     public static boolean AddNews(News news1) {
-        conn.connect();    
+        conn.connect();
         String query = "INSERT INTO news (ID_News, Title_News, Content_News, Date_News)VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
@@ -78,4 +78,99 @@ public class Controller {
             return (false);
         }
     }
+
+    public static ArrayList<Contact> SeeContact() {
+        ArrayList<Contact> contact = new ArrayList<>();
+        conn.connect();
+        String query = "SELECT * FROM contact";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Contact contacts = new Contact();
+                contacts.setID_Contact(rs.getString("ID_Contact"));
+                contacts.setContact_Name(rs.getString("Contact_Name"));
+                contact.add(contacts);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (contact);
+    }
+
+    public static boolean AddContact(Contact contacts) {
+        conn.connect();
+        String query = "INSERT INTO contact (ID_Contact, Contact_Name)VALUES (?, ?)";
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, contacts.getID_Contact());
+            stmt.setString(2, contacts.getContact_Name());
+            stmt.executeUpdate();
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+
+    public static boolean DeleteContact(String name) {
+        conn.connect();
+        String query = "DELETE FROM contact WHERE Contact_Name='" + name + "'";
+        try {
+            Statement stmt = conn.con.createStatement();
+            stmt.executeUpdate(query);
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+
+    public static ArrayList<Partner> SeePartner() {
+        ArrayList<Partner> partner = new ArrayList<>();
+        conn.connect();
+        String query = "SELECT * FROM partner";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Partner partners = new Partner();
+                partners.setID_Partner(rs.getString("ID_Partner"));
+                partners.setPartner_Name(rs.getString("Partner_Name"));
+                partner.add(partners);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (partner);
+    }
+
+    public static boolean AddPartner(Partner partners) {
+        conn.connect();
+        String query = "INSERT INTO partner (ID_Partner, Partner_Name)VALUES (?, ?)";
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, partners.getID_Partner());
+            stmt.setString(2, partners.getPartner_Name());
+            stmt.executeUpdate();
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+
+    public static boolean DeletePartner(String name) {
+        conn.connect();
+        String query = "DELETE FROM partner WHERE Partner_Name='" + name + "'";
+        try {
+            Statement stmt = conn.con.createStatement();
+            stmt.executeUpdate(query);
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+
 }

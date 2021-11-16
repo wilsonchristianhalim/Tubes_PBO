@@ -19,6 +19,10 @@ public class Contact {
         this.Contact_Name = Contact_Name;
     }
 
+    public Contact() {
+        
+    }
+
     public String getID_Contact() {
         return ID_Contact;
     }
