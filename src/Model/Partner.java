@@ -18,6 +18,10 @@ public class Partner {
         this.Partner_Name = Partner_Name;
     }
 
+    public Partner() {
+        
+    }
+
     public String getID_Partner() {
         return ID_Partner;
     }

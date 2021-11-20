@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
-/**
- *
- * @author Wilson
- */
 public class News {
+
     private String ID_News;
     private String Title_News;
     private String Content_News;
     private String Date_News;
+
+    public News() {
+
+    }
 
     public News(String ID_News, String Title_News, String Content_News, String Date_News) {
         this.ID_News = ID_News;
@@ -58,5 +54,5 @@ public class News {
     public String toString() {
         return "News{" + "ID_News=" + ID_News + ", Title_News=" + Title_News + ", Content_News=" + Content_News + ", Date_News=" + Date_News + '}';
     }
-    
+
 }
