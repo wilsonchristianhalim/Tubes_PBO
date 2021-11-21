@@ -8,60 +8,63 @@ package View;
 import javax.swing.*;
 import java.util.ArrayList;
 import Controller.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Wilson
  */
 public class MainMenu {
+private JButton divisi, match, news, company, forum;
 
-    public static void menu() {
-        int menu;
-        int news;
-        menu = Integer.parseInt(JOptionPane.showInputDialog(null, "Main Menu"
-                + "\n1. Divisi Game"
-                + "\n2. Match"
-                + "\n3. News"
-                + "\n4. Company"
-                + "\n5. Form"));
-        news = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu News"
-                + "\n1. Lihat News"
-                + "\n2. Tambah News"
-                + "\n3. Edit News"
-                + "\n4. Delete News"
-                + "\n5. Kembali ke Menu Utama"));
-        switch (menu) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                switch (news) {
-                    case 1:
-                        NewsView.LihatNews();
-                        break;
-                    case 2:
-                        NewsView.TambahNews();
-                        break;
-                    case 3:
-                        NewsView.EditNews();
-                        break;
-                    case 4:
-                        NewsView.HapusNews();
-                        break;
-                    case 5:
-                        menu();
-                        break;
-                }
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-        }
-    }
-
-    public static void main(String[] args) {
-        menu();
+    public void MainMenu(){
+        JFrame main = new JFrame("Main Menu");
+        main.setSize(300, 600);
+        
+        //Isi Frame
+        divisi = new JButton("Divisi Game");
+        divisi.setBounds(50, 10, 100, 30);
+        divisi.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //isi
+            }
+        });
+        match = new JButton("Match");
+        match.setBounds(50, 50, 100, 30);
+        match.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //isi
+            }
+        });
+        news = new JButton("News");
+        news.setBounds(50, 90, 100, 30);
+        news.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //isi
+            }
+        });
+        company = new JButton("Company");
+        company.setBounds(50, 130, 100, 30);
+        company.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //isi
+            }
+        });
+        forum = new JButton("Forum");
+        forum.setBounds(50, 170, 100, 30);
+        forum.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //isi
+            }
+        });
+        
+        main.add(divisi);
+        main.add(match);
+        main.add(news);
+        main.add(company);
+        main.add(forum);
+        main.setLayout(null);
+        main.setVisible(true);
     }
 }
