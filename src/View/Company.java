@@ -16,6 +16,7 @@ public class Company {
     
     public void Company(){
         MainMenu main = new MainMenu();
+        Contact cont = new Contact();
         //Frame
         JFrame company = new JFrame("Company");
         company.setSize(300, 600);
@@ -24,7 +25,7 @@ public class Company {
         contact = new JButton("Contact");
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                cont.Contact();
             }
         });
         contact.setBounds(50, 10, 100, 30);
@@ -42,5 +43,11 @@ public class Company {
             }
         });
         back.setBounds(50, 90, 100, 30);
+        
+        company.add(contact);
+        company.add(partner);
+        company.add(back);
+        company.setLayout(null);
+        company.setVisible(true);
     }
 }

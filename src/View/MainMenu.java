@@ -19,6 +19,7 @@ public class MainMenu {
 private JButton divisi, match, news, company, forum;
 
     public void MainMenu(){
+        Company comp = new Company();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
         
@@ -48,7 +49,7 @@ private JButton divisi, match, news, company, forum;
         company.setBounds(50, 130, 100, 30);
         company.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                comp.Company();
             }
         });
         forum = new JButton("Forum");
