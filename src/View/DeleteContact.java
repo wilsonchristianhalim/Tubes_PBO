@@ -21,20 +21,13 @@ public class DeleteContact {
         MenuContact cont = new MenuContact();
         //Frame
         JFrame deletecontact = new JFrame("Delete Contact");
-        delete.setSize(500, 100);
+        deletecontact.setSize(500, 600);
         
         //Isi Frame
         contactName = new JLabel("Contact Name");
         contactName.setBounds(50, 10, 200, 30);
         isiNama = new JTextField("");
         isiNama.setBounds(260, 10, 200, 30);
-        back = new JButton("Back");
-        back.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                cont.MenuContact();
-            }
-        });
-        back.setBounds(50, 50, 100, 30);
         delete = new JButton("Delete");
         delete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -42,5 +35,19 @@ public class DeleteContact {
             }
         });
         delete.setBounds(350, 50, 100, 30);
+        back = new JButton("Back");
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                cont.MenuContact();
+            }
+        });
+        back.setBounds(50, 50, 100, 30);
+        
+        deletecontact.add(contactName);
+        deletecontact.add(isiNama);
+        deletecontact.add(back);
+        deletecontact.add(delete);
+        deletecontact.setLayout(null);
+        deletecontact.setVisible(true);
     }
 }

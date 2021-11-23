@@ -32,6 +32,7 @@ public class AddPartner {
         partnerName = new JLabel("Partner Name");
         partnerName.setBounds(50, 50, 200, 30);
         isiNama = new JTextField("");
+        isiNama.setBounds(260, 50, 200, 30);
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -40,7 +41,7 @@ public class AddPartner {
         });
         back.setBounds(50, 90, 100, 30);
         add = new JButton("Add");
-        back.addActionListener(new ActionListener() {
+        add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Partner partners = new Partner();
                 partners.setID_Partner(isiID.getText());

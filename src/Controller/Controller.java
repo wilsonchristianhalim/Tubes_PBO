@@ -93,8 +93,12 @@ public class Controller {
         String query = "DELETE FROM contact WHERE Contact_Name='" + name + "'";
         try {
             Statement stmt = conn.con.createStatement();
-            stmt.executeUpdate(query);
-            JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+            int i = stmt.executeUpdate(query);  
+            if (i == 0) {
+                JOptionPane.showMessageDialog(null,"Gagal Dihapus");          
+            }else{
+                JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+            }
             return (true);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Gagal Dihapus");
@@ -144,8 +148,12 @@ public class Controller {
         String query = "DELETE FROM partner WHERE Partner_Name='" + name + "'";
         try {
             Statement stmt = conn.con.createStatement();
-            stmt.executeUpdate(query);
-            JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+            int i = stmt.executeUpdate(query);
+            if (i == 0) {
+                JOptionPane.showMessageDialog(null,"Gagal Dihapus");          
+            }else{
+                JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+            }
             return (true);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Gagal Dihapus");
@@ -153,5 +161,4 @@ public class Controller {
             return (false);
         }
     }
-
 }

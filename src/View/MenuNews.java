@@ -23,6 +23,7 @@ public class MenuNews {
 
     public void MenuNews() {
         MainMenu main = new MainMenu();
+        AddNews add = new AddNews();
         //Frame
         JFrame news = new JFrame("News");
         news.setSize(300, 600);
@@ -38,7 +39,7 @@ public class MenuNews {
         addNews = new JButton("Add News");
         addNews.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            //isi
+                add.AddNews();
             }
         });
         addNews.setBounds(50, 50, 150, 30);
