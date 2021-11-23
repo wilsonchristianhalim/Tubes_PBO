@@ -16,6 +16,7 @@ public class Contact {
     
     public void Contact(){
         AddContact add = new AddContact();
+        DeleteContact delete = new DeleteContact();
         //Frame
         JFrame contact = new JFrame("Contact Menu");
         contact.setSize(300, 600);
@@ -38,7 +39,7 @@ public class Contact {
         deleteContact = new JButton("Delete Contact");
         deleteContact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                delete.DeleteContact();
             }
         });
         deleteContact.setBounds(50, 90, 150, 30);
