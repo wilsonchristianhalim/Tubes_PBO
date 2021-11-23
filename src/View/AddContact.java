@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package View;
+import Model.Contact;
+import Controller.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import controller.*;
 import javax.swing.*;
 /**
  *
@@ -17,7 +20,7 @@ public class AddContact {
     private JButton add, back;
     
     public void AddContact(){
-        Contact contact = new Contact();
+        MenuContact cont = new MenuContact();
         //Frame
         JFrame addcontact = new JFrame("Add Contact");
         addcontact.setSize(500, 130);
@@ -34,14 +37,18 @@ public class AddContact {
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                contact.Contact();
+                cont.MenuContact();
             }
         });
         back.setBounds(50, 90, 100, 30);
         add = new JButton("Add");
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                Contact contacts = new Contact();
+                contacts.setID_Contact(isiID.getText());
+                contacts.setContact_Name(isiNama.getText());
+                Controller.AddContact(contacts);
+                cont.MenuContact();
             }
         });
         add.setBounds(350, 90, 100, 30);

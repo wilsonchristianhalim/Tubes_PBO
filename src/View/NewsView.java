@@ -26,20 +26,4 @@ public class NewsView {
         news.add(news1);       
         controller.AddNews(news1);
     }
-    
-    public static void EditNews(){
-        ArrayList<News> news = new ArrayList<>();
-        News news1 = new News();
-        news1.setID_News(JOptionPane.showInputDialog("Input ID News Yang Ingin Diedit :"));
-        news1.setTitle_News(JOptionPane.showInputDialog("Input Title Baru :")); 
-        news1.setContent_News(JOptionPane.showInputDialog("Input Content Baru :"));
-        news1.setDate_News(JOptionPane.showInputDialog("Input Date Baru :"));
-        news.add(news1);
-        controller.EditNews(news1);
-    }
-    
-    public static void HapusNews(){
-        String title = JOptionPane.showInputDialog("Input Title News Yang Ingin Dihapus :");
-        controller.DeleteNews(title);
-    }
 }

@@ -7,6 +7,7 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import Controller.*;
 /**
  *
  * @author Wilson
@@ -17,7 +18,7 @@ public class DeleteContact {
     JButton delete, back;
     
     public void DeleteContact(){
-        Contact contact = new Contact();
+        MenuContact cont = new MenuContact();
         //Frame
         JFrame deletecontact = new JFrame("Delete Contact");
         delete.setSize(500, 100);
@@ -30,14 +31,14 @@ public class DeleteContact {
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                contact.Contact();
+                cont.MenuContact();
             }
         });
         back.setBounds(50, 50, 100, 30);
         delete = new JButton("Delete");
         delete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+               Controller.DeleteContact(isiNama.getText());
             }
         });
         delete.setBounds(350, 50, 100, 30);

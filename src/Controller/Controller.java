@@ -43,37 +43,10 @@ public class Controller {
             stmt.setString(3, news1.getContent_News());
             stmt.setString(4, news1.getDate_News());
             stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
-            e.printStackTrace();
-            return (false);
-        }
-    }
-
-    public static boolean EditNews(News news1) {
-        conn.connect();
-        String query = "UPDATE news SET Title_News='" + news1.getTitle_News() + "', "
-                + "Content_News='" + news1.getContent_News() + "', "
-                + "Date_News='" + news1.getDate_News() + "' "
-                + "WHERE ID_News='" + news1.getID_News() + "'";
-        try {
-            Statement stmt = conn.con.createStatement();
-            stmt.executeUpdate(query);
-            return (true);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return (false);
-        }
-    }
-
-    public static boolean DeleteNews(String title) {
-        conn.connect();
-        String query = "DELETE FROM news WHERE Title_News='" + title + "'";
-        try {
-            Statement stmt = conn.con.createStatement();
-            stmt.executeUpdate(query);
-            return (true);
-        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
@@ -106,8 +79,10 @@ public class Controller {
             stmt.setString(1, contacts.getID_Contact());
             stmt.setString(2, contacts.getContact_Name());
             stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
@@ -119,8 +94,10 @@ public class Controller {
         try {
             Statement stmt = conn.con.createStatement();
             stmt.executeUpdate(query);
+            JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
             return (true);
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Gagal Dihapus");
             e.printStackTrace();
             return (false);
         }
@@ -153,8 +130,10 @@ public class Controller {
             stmt.setString(1, partners.getID_Partner());
             stmt.setString(2, partners.getPartner_Name());
             stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
@@ -166,8 +145,10 @@ public class Controller {
         try {
             Statement stmt = conn.con.createStatement();
             stmt.executeUpdate(query);
+            JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
             return (true);
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Gagal Dihapus");
             e.printStackTrace();
             return (false);
         }
