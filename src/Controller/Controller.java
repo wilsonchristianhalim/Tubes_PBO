@@ -1,17 +1,57 @@
 package Controller;
 
 import Model.*;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
 
 public class Controller {
 
     static DataBaseHandler conn = new DataBaseHandler();
+    
+    public static boolean cekPassword(String username, String password) {
+        ArrayList<User> persons = new ArrayList<>();
+        conn.connect();
+        String query = "SELECT * FROM person WHERE username='" + username + "'";
+        boolean isMatch = false;
+        try{
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()){
+                if(rs.getString("password").equals(getMd5(password))){
+                    isMatch = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isMatch;
+    }
+    
+    private static String getMd5(String input) {
+        try{
+            MessageDigest md = MessageDigest.getInstance("MD5");
+        
+            byte[] messageDigest = md.digest(input.getBytes());
 
+            BigInteger no = new BigInteger(1, messageDigest);
+            
+            String hashtext = no.toString(16);
+            while(hashtext.length() < 32){
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }          
+    }
+    
     public static ArrayList<News> SeeNews() {
         ArrayList<News> news = new ArrayList<>();
         conn.connect();
