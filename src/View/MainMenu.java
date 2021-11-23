@@ -24,11 +24,11 @@ private JButton divisi, match, news, company, forum;
         main.setSize(300, 600);
         
         //Isi Frame
-        divisi = new JButton("Divisi Game");
+        divisi = new JButton("Menu Divisi Game");
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                
             }
         });
         match = new JButton("Match");

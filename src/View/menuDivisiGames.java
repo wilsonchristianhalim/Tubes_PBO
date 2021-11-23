@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class menuDivisiGames {
+public class menuDivisiGames implements ActionListener{
     JFrame layoutDivisi = new JFrame("Menu Divisi Games");
     JLabel title;
     JPanel buttonPanel;
@@ -24,22 +24,22 @@ public class menuDivisiGames {
         buttonPanel.setLayout(null);
         
         bValorant = new JButton("Valorant");
-        bValorant.setBounds(600, 50, 200,70);
+        bValorant.setBounds(100, 50, 200, 70);
         bValorant.addActionListener((ActionListener) this);
         bValorant.setFont(StyleSheet.buttonFont);
         
         bMobileLagend = new JButton("Mobile Lagend");
-        bMobileLagend.setBounds(850, 50, 200,70);
+        bMobileLagend.setBounds(400, 50, 200, 70);
         bMobileLagend.addActionListener((ActionListener) this);
         bMobileLagend.setFont(StyleSheet.buttonFont);
         
         bPubg = new JButton("PUBG");
-        bPubg.setBounds(1100, 50, 200,70);
+        bPubg.setBounds(700, 50, 200, 70);
         bPubg.addActionListener((ActionListener) this);
         bPubg.setFont(StyleSheet.buttonFont);
         
         logOut = new JButton("Log Out");
-        logOut.setBounds(980, 140, 200,70);
+        logOut.setBounds(1000, 50, 200,70);
         logOut.addActionListener((ActionListener) this);
         logOut.setFont(StyleSheet.buttonFont);
         
@@ -56,7 +56,7 @@ public class menuDivisiGames {
         layoutDivisi.setVisible(true);
        
     }
-    
+    @Override
     public void actionPerformed(ActionEvent e) {
         String buttonClick = e.getActionCommand();
         switch(buttonClick){
@@ -81,7 +81,7 @@ public class menuDivisiGames {
     
                 if(jawab == JOptionPane.YES_OPTION){
                     layoutDivisi.dispose();
-                    new FormLogin();
+                    new MainMenu();
                 }
                 break;
         }
