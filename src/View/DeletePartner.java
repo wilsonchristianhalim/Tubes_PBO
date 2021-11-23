@@ -7,6 +7,7 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import Controller.Controller;
 /**
  *
  * @author Wilson
@@ -37,7 +38,7 @@ public class DeletePartner {
         delete = new JButton("Delete");
         delete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                Controller.DeletePartner(isiNama.getText());
             }
         });
         delete.setBounds(350, 50, 100, 30);

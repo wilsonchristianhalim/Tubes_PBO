@@ -16,6 +16,8 @@ public class MenuPartner {
     
     public void MenuPartner(){
         Company company = new Company();
+        AddPartner add = new AddPartner();
+        DeletePartner del = new DeletePartner();
         //Frame
         JFrame menuPartner = new JFrame("Partner");
         menuPartner.setSize(300, 600);
@@ -31,14 +33,14 @@ public class MenuPartner {
         addPartner = new JButton("Add Partner");
         addPartner.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                add.AddPartner();
             }
         });
         addPartner.setBounds(50, 50, 150, 30);
         deletePartner = new JButton("Delete Partner");
         deletePartner.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                del.DeletePartner();
             }
         });
         deletePartner.setBounds(50, 90, 150, 30);

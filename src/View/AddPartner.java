@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package View;
+import Controller.Controller;
+import Model.Partner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -40,7 +42,11 @@ public class AddPartner {
         add = new JButton("Add");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                Partner partners = new Partner();
+                partners.setID_Partner(isiID.getText());
+                partners.setPartner_Name(isiNama.getText());
+                Controller.AddPartner(partners);
+                partner.MenuPartner();
             }
         });
         add.setBounds(350, 90, 100, 30);
