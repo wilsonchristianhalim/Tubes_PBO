@@ -11,10 +11,10 @@ import javax.swing.*;
  *
  * @author Wilson
  */
-public class Contact {
+public class MenuContact {
     private JButton showContact, addContact, deleteContact;
     
-    public void Contact(){
+    public void MenuContact(){
         AddContact add = new AddContact();
         DeleteContact delete = new DeleteContact();
         //Frame

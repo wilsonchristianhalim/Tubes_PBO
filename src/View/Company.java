@@ -16,7 +16,7 @@ public class Company {
     
     public void Company(){
         MainMenu main = new MainMenu();
-        Contact cont = new Contact();
+        MenuContact cont = new MenuContact();
         //Frame
         JFrame company = new JFrame("Company");
         company.setSize(300, 600);
@@ -25,7 +25,7 @@ public class Company {
         contact = new JButton("Contact");
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cont.Contact();
+                cont.MenuContact();
             }
         });
         contact.setBounds(50, 10, 100, 30);
