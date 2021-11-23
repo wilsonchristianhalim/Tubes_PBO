@@ -10,26 +10,26 @@ package Model;
  * @author Wilson
  */
 public class Player extends Team{
-    private String ID_Player;
+    private int ID_Player;
     private String Username;
-    private String Name;
-    private int Age;
-    private String TTL;
+    private String Nama;
+    private int Umur;
+    private String TanggalLahir;
 
-    public Player(String ID_Player, String Username, String Name, int Age, String TTL, String ID_Team, String Nama_Team, String Divisi) {
+    public Player(int ID_Player, String Username, String Nama, int Umur, String TanggalLahir, String ID_Team, String Nama_Team, String Divisi) {
         super(ID_Team, Nama_Team, Divisi);
         this.ID_Player = ID_Player;
         this.Username = Username;
-        this.Name = Name;
-        this.Age = Age;
-        this.TTL = TTL;
+        this.Nama = Nama;
+        this.Umur = Umur;
+        this.TanggalLahir = TanggalLahir;
     }
 
-    public String getID_Player() {
+    public int getID_Player() {
         return ID_Player;
     }
 
-    public void setID_Player(String ID_Player) {
+    public void setID_Player(int ID_Player) {
         this.ID_Player = ID_Player;
     }
 
@@ -41,33 +41,35 @@ public class Player extends Team{
         this.Username = Username;
     }
 
-    public String getName() {
-        return Name;
+    public String getNama() {
+        return Nama;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setNama(String Nama) {
+        this.Nama = Nama;
     }
 
-    public int getAge() {
-        return Age;
+    public int getUmur() {
+        return Umur;
     }
 
-    public void setAge(int Age) {
-        this.Age = Age;
+    public void setUmur(int Umur) {
+        this.Umur = Umur;
     }
 
-    public String getTTL() {
-        return TTL;
+    public String getTanggalLahir() {
+        return TanggalLahir;
     }
 
-    public void setTTL(String TTL) {
-        this.TTL = TTL;
+    public void setTanggalLahir(String TanggalLahir) {
+        this.TanggalLahir = TanggalLahir;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "ID_Player=" + ID_Player + ", Username=" + Username + ", Name=" + Name + ", Age=" + Age + ", TTL=" + TTL + '}';
+        return "Player{" + "ID_Player=" + ID_Player + ", Username=" + Username + ", Nama=" + Nama + ", Umur=" + Umur + ", TanggalLahir=" + TanggalLahir + '}';
     }
+    
+    
     
 }

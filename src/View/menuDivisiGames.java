@@ -13,6 +13,7 @@ public class menuDivisiGames {
     JButton bValorant,bMobileLagend, bPubg, logOut;
     
     public menuDivisiGames(){
+        MainMenu main = new MainMenu();
         layoutDivisi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         layoutDivisi.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
