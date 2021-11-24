@@ -201,4 +201,12 @@ public class Controller {
             return (false);
         }
     }
+
+    public static User getUser(String uname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static User getUser(String uname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
