@@ -185,6 +185,11 @@ public class Controller {
             return (false);
         }
     }
+    
+    public String [][] ArrayContact(){
+//        String contact[][] = new String[][2];
+        
+    }
 
     public static ArrayList<Partner> SeePartner() {
         ArrayList<Partner> partner = new ArrayList<>();
