@@ -5,11 +5,16 @@
  */
 package View;
 
+import java.awt.Font;
+
 /**
  *
  * @author Vito
  */
 public interface InterfaceScreen {
-    public final int WINDOWS_WIDTH = 800 ;
-    public final int WINDOWS_HEIGHT = 600  ;
+    public final String VALORANT = "Valorant" ;
+    public final String MOBILE_LEGENDS = "Mobile Legend" ;
+    public final String PUBG = "PUBG" ;
+    
+       
 }
