@@ -1,8 +1,6 @@
 package Controller;
 
 import Model.*;
-import static Model.Type.ADMIN;
-import static Model.Type.USER;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -74,16 +72,16 @@ public class Controller {
         }
     }   
     
-    public static ArrayList<News> SeeNews(String titleNews) {
+    public static ArrayList<News>SeeNews(int id) {
         ArrayList<News> news = new ArrayList<>();
         conn.connect();
-        String query = "SELECT * FROM news";
+        String query = "SELECT * FROM news Where ID_News='" + id + "'";
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 News news1 = new News();
-                news1.setID_News(rs.getString("ID_News"));
+                news1.setID_News(rs.getInt("ID_News"));
                 news1.setTitle_News(rs.getString("Title_News"));
                 news1.setContent_News(rs.getString("Content_News"));
                 news1.setDate_News(rs.getString("Date_News"));
@@ -97,10 +95,10 @@ public class Controller {
 
     public static boolean AddNews(News news1) {
         conn.connect();
-        String query = "INSERT INTO news (ID_News, Title_News, Content_News, Date_News)VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO news (Title_News, Content_News, Date_News)VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
-            stmt.setString(1, news1.getID_News());
+            stmt.setInt(1, news1.getID_News());
             stmt.setString(2, news1.getTitle_News());
             stmt.setString(3, news1.getContent_News());
             stmt.setString(4, news1.getDate_News());
@@ -123,6 +121,7 @@ public class Controller {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 News news1 = new News();
+                news1.setID_News(rs.getInt("ID_News"));
                 news1.setTitle_News(rs.getString("Title_News"));
                 title.add(news1);
             }

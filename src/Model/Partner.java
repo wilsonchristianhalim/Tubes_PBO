@@ -40,7 +40,7 @@ public class Partner {
 
     @Override
     public String toString() {
-        return "Partner{" + "ID_Partner=" + ID_Partner + ", Partner_Name=" + Partner_Name + '}';
+        return "\n" + Partner_Name + "";
     }
     
 }

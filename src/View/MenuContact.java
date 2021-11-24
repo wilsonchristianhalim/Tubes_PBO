@@ -7,6 +7,7 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import Controller.Controller;
 /**
  *
  * @author Wilson
@@ -26,7 +27,7 @@ public class MenuContact {
         showContact.setBounds(50, 10, 150, 30);
         showContact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                JOptionPane.showMessageDialog(null,Controller.SeeContact());
             }
         });
         addContact = new JButton("Add Contact");

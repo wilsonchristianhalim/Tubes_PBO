@@ -97,10 +97,10 @@ public class FormLogin extends JFrame implements ActionListener{
                     PersonManager.getInstance().setPerson(Controller.getUser(uname));
                     if (PersonManager.getInstance().getPerson().getTipePerson() == 1) {
                         loginPage.dispose();
-                        new menuAdmin();
+                        new MainMenu();
                     } else if (PersonManager.getInstance().getPerson().getTipePerson() == 0) {
                         loginPage.dispose();
-                        new MainMenu();
+                        new menuUser();
                     } else {
                         loginPage.dispose();
                         new MainMenu();

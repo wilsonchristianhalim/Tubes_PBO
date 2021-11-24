@@ -6,8 +6,8 @@ public class Main {
     public Main(){
 //        Company comp = new Company();
 //        comp.Company();
-        menuDivisiGames divisi = new menuDivisiGames();
-        
+//        menuDivisiGames divisi = new menuDivisiGames();
+        MenuContact test = new MenuContact();
     
     }
     
