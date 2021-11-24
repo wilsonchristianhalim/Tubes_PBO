@@ -245,14 +245,11 @@ public class Controller {
                         person = new User();
                         break;
                 }
-//                person.setIdPerson(rs.getInt("idPerson"));
-//                person.setUsername(rs.getString("username"));
-//                person.setPassword(rs.getString("password"));
-//                person.setNama(rs.getString("nama"));
-//                person.setAlamat(rs.getString("alamat"));
-//                person.setNoKTP(rs.getString("noKTP"));
-//                person.setNoHP(rs.getString("noHP"));
-//                person.setEmail(rs.getString("email"));
+                person.setUsername(rs.getString("username"));
+                person.setPW_User(rs.getString("password"));
+                person.setName(rs.getString("name"));
+                person.setEmail(rs.getString("email"));
+                person.setAge(rs.getInt("age"));
             }
         }catch(SQLException e){
             e.printStackTrace();

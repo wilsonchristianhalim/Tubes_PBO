@@ -96,12 +96,12 @@ public class FormLogin extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please insert password!", "Alert", JOptionPane.WARNING_MESSAGE);
                 } else if (Controller.cekPassword(uname, pass)) {
                     PersonManager.getInstance().setPerson(Controller.getUser(uname));
-                    if (PersonManager.getInstance().getPerson().getType() == Type.USER) {
+                    if (PersonManager.getInstance().getPerson().getTipePerson() == Type.ADMIN) {
                         loginPage.dispose();
                         new menuAdmin();
-                    } else if (PersonManager.getInstance().getPerson().getType() == Type.ADMIN) {
+                    } else if (PersonManager.getInstance().getPerson().getTipePerson() == Type.USER) {
                         loginPage.dispose();
-                        new MenuUser();
+                        new MainMenu();
                     } else {
                         loginPage.dispose();
                         new MainMenu();
@@ -112,7 +112,7 @@ public class FormLogin extends JFrame implements ActionListener{
                 break;
             case "Click here to register new account":
                 loginPage.dispose();
-                new MenuRegister();
+                new Register();
                 break;
     }
 }}
