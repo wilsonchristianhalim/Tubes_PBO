@@ -258,11 +258,11 @@ public class Controller {
                 switch(tipePerson){
                     case 0:
                         person = new User();
-                        person.setTipePerson(USER);
+                        person.setTipePerson(0);
                         break;
                     case 1:
-                        person = new Admin();
-                        person.setTipePerson(ADMIN);
+                        person = new User();
+                        person.setTipePerson(1);
                         break;
                     default:
                         person = new User();

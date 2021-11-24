@@ -37,7 +37,7 @@ public class Valorant{
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                divisi.layoutDivisi();
+                divisi.menuDivisiGames();
             }
         });
         back.setBounds(50, 90, 100, 30);

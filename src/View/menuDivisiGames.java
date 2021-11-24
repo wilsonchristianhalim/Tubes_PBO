@@ -12,7 +12,7 @@ public class menuDivisiGames implements ActionListener{
     JPanel buttonPanel;
     JButton bValorant,bMobileLagend, bPubg, logOut;
     
-    public menuDivisiGames(){
+    public void menuDivisiGames(){
         MainMenu main = new MainMenu();
         layoutDivisi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         layoutDivisi.setExtendedState(JFrame.MAXIMIZED_BOTH);
