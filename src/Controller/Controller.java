@@ -172,5 +172,76 @@ public class Controller {
             return (false);
         }
     }
+    
+    
+    public ArrayList<Match> getAllMatch() {
+        conn.connect();
+        ArrayList<Match> matchs = new ArrayList<>();
+        String query = "SELECT * FROM matchs ;";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Match match = new Match();
+                match.setIdMatch(rs.getInt("id_match"));
+                match.setEventMatch(rs.getString("event_match"));
+                match.setTeam(rs.getString("team"));
+                match.setLawan(rs.getString("lawan"));
+                match.setDateMatch(rs.getString("date_match"));
+                match.setResult(rs.getString("result"));
+                matchs.add(match);
+                
+                
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (matchs);
+    }
 
+    public ArrayList<Match> getAllMatchByIdTeam(int idTeam) {
+        conn.connect();
+        ArrayList<Match> matchs = new ArrayList<>();
+        
+        String query = "SELECT * FROM `matchs` WHERE id_team = '" + idTeam + "';";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                System.out.println("TESS");
+                Match match = new Match();
+                match.setIdMatch(rs.getInt("id_match"));
+                match.setEventMatch(rs.getString("event_match"));
+                match.setTeam(rs.getString("team"));
+                match.setLawan(rs.getString("lawan"));
+                match.setDateMatch(rs.getString("date_match"));
+                match.setResult(rs.getString("result"));
+                matchs.add(match);
+                
+                
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (matchs);
+    }
+    
+    public ArrayList<Team> getAllTeam() {
+        conn.connect();
+        ArrayList<Team> teams = new ArrayList<>();
+        String query = "SELECT * FROM team " ;
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Team tim = new Team();
+                tim.setID_Team(rs.getString("id_team"));
+                tim.setNama_Team(rs.getString("id_team"));
+                teams.add(tim);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (teams);
+    }
 }

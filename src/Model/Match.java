@@ -10,40 +10,63 @@ package Model;
  * @author Wilson
  */
 public class Match {
-    private String id_Match;
-    private String match_Name;
-    private String date_Match;
+    private int idMatch;
+    private String eventMatch;
+    private String team;
+    private String lawan;
+    private String dateMatch;
     private String result;
 
-    public Match(String id_Match, String match_Name, String date_Match, String result) {
-        this.id_Match = id_Match;
-        this.match_Name = match_Name;
-        this.date_Match = date_Match;
+    public Match() {
+    }
+
+    public Match(int idMatch, String eventMatch, String team, String lawan, String dateMatch, String result) {
+        this.idMatch = idMatch;
+        this.eventMatch = eventMatch;
+        this.team = team;
+        this.lawan = lawan;
+        this.dateMatch = dateMatch;
         this.result = result;
     }
 
-    public String getId_Match() {
-        return id_Match;
+    public int getIdMatch() {
+        return idMatch;
     }
 
-    public void setId_Match(String id_Match) {
-        this.id_Match = id_Match;
+    public void setIdMatch(int idMatch) {
+        this.idMatch = idMatch;
     }
 
-    public String getMatch_Name() {
-        return match_Name;
+    public String getEventMatch() {
+        return eventMatch;
     }
 
-    public void setMatch_Name(String match_Name) {
-        this.match_Name = match_Name;
+    public void setEventMatch(String eventMatch) {
+        this.eventMatch = eventMatch;
     }
 
-    public String getDate_Match() {
-        return date_Match;
+    public String getTeam() {
+        return team;
     }
 
-    public void setDate_Match(String date_Match) {
-        this.date_Match = date_Match;
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getLawan() {
+        return lawan;
+    }
+
+    public void setLawan(String lawan) {
+        this.lawan = lawan;
+    }
+
+    public String getDateMatch() {
+        return dateMatch;
+    }
+
+    public void setDateMatch(String dateMatch) {
+        this.dateMatch = dateMatch;
     }
 
     public String getResult() {
@@ -56,16 +79,9 @@ public class Match {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Match{iD_Match=").append(id_Match);
-        sb.append(", match_Name=").append(match_Name);
-        sb.append(", date_Match=").append(date_Match);
-        sb.append(", result=").append(result);
-        sb.append('}');
-        return sb.toString();
+        return "Match{" + "idMatch=" + idMatch + ", eventMatch=" + eventMatch + ", team=" + team + ", lawan=" + lawan + ", dateMatch=" + dateMatch + ", result=" + result + '}';
     }
 
-    
     
     
 }
