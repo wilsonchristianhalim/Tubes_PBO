@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.*;
+import static Model.Type.ADMIN;
+import static Model.Type.USER;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -200,5 +202,42 @@ public class Controller {
             e.printStackTrace();
             return (false);
         }
+    }
+
+    public static User getUser(String uname) {
+        User person = null;
+        conn.connect();
+        String query = "SELECT * FROM User WHERE username='" + uname + "'";
+        try{
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()){
+                int tipePerson = rs.getInt("tipePerson");
+                switch(tipePerson){
+                    case 0:
+                        person = new User();
+                        person.setTipePerson(USER);
+                        break;
+                    case 1:
+                        person = new Admin();
+                        person.setTipePerson(ADMIN);
+                        break;
+                    default:
+                        person = new User();
+                        break;
+                }
+                person.setIdPerson(rs.getInt("idPerson"));
+                person.setUsername(rs.getString("username"));
+                person.setPassword(rs.getString("password"));
+                person.setNama(rs.getString("nama"));
+                person.setAlamat(rs.getString("alamat"));
+                person.setNoKTP(rs.getString("noKTP"));
+                person.setNoHP(rs.getString("noHP"));
+                person.setEmail(rs.getString("email"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return (person);
     }
 }

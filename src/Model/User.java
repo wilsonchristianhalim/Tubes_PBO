@@ -26,6 +26,9 @@ public class User {
         this.tipePerson = tipePerson;
     }
 
+    public User() {
+    }
+
     public String getUsername() {
         return Username;
     }
@@ -78,12 +81,4 @@ public class User {
     public String toString() {
         return "User{" + "Username=" + Username + ", PW_User=" + PW_User + ", Name=" + Name + ", Email=" + Email + ", Age=" + Age + ", tipePerson=" + tipePerson + '}';
     }
-
-    
-
-    public boolean getType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

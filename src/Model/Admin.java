@@ -9,17 +9,22 @@ package Model;
  *
  * @author Wilson
  */
-public class Admin {
+public class Admin  extends User{
     private String ID_Admin;
     private String PW_Admin;
     private String Name;
-
+    
+    
     public Admin(String ID_Admin, String PW_Admin, String Name) {
         this.ID_Admin = ID_Admin;
         this.PW_Admin = PW_Admin;
         this.Name = Name;
     }
 
+    public Admin() {
+    }
+    
+    
     public String getID_Admin() {
         return ID_Admin;
     }
