@@ -17,7 +17,7 @@ public class FormLogin extends JFrame implements ActionListener{
     JPanel dataPanel;
     JButton cancelButton, loginButton, registerButton;
     
-    public FormLogin(){
+    public void FormLogin(){
         loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginPage.setExtendedState(JFrame.MAXIMIZED_BOTH);
         loginPage.getContentPane().setBackground(StyleSheet.backgroundColor);
@@ -96,10 +96,10 @@ public class FormLogin extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please insert password!", "Alert", JOptionPane.WARNING_MESSAGE);
                 } else if (Controller.cekPassword(uname, pass)) {
                     PersonManager.getInstance().setPerson(Controller.getUser(uname));
-                    if (PersonManager.getInstance().getPerson().getTipePerson() == Type.ADMIN) {
+                    if (PersonManager.getInstance().getPerson().getTipePerson() == 1) {
                         loginPage.dispose();
                         new menuAdmin();
-                    } else if (PersonManager.getInstance().getPerson().getTipePerson() == Type.USER) {
+                    } else if (PersonManager.getInstance().getPerson().getTipePerson() == 0) {
                         loginPage.dispose();
                         new MainMenu();
                     } else {

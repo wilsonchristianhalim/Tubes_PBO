@@ -15,9 +15,9 @@ public class User {
     private String Name;
     private String Email;
     private int Age;
-    private Type tipePerson;
+    private int tipePerson;
 
-    public User(String Username, String PW_User, String Name, String Email, int Age, Type tipePerson) {
+    public User(String Username, String PW_User, String Name, String Email, int Age, int tipePerson) {
         this.Username = Username;
         this.PW_User = PW_User;
         this.Name = Name;
@@ -69,11 +69,11 @@ public class User {
         this.Age = Age;
     }
 
-    public Type getTipePerson() {
+    public int getTipePerson() {
         return tipePerson;
     }
 
-    public void setTipePerson(Type tipePerson) {
+    public void setTipePerson(int tipePerson) {
         this.tipePerson = tipePerson;
     }
 

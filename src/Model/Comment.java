@@ -14,8 +14,8 @@ public class Comment extends Post {
     private String Comment;
     private String Date;
 
-    public Comment(String ID_Comment, String Comment, String Date, String ID_Post, String Post_Content, String Date_Post, String Username, String PW_User, String Name, String Email, int Age) {
-        super(ID_Post, Post_Content, Date_Post, Username, PW_User, Name, Email, Age);
+    public Comment(String ID_Comment, String Comment, String Date, String ID_Post, String Post_Content, String Date_Post, String Username, String PW_User, String Name, String Email, int Age, int tipePerson) {
+        super(ID_Post, Post_Content, Date_Post, Username, PW_User, Name, Email, Age, tipePerson);
         this.ID_Comment = ID_Comment;
         this.Comment = Comment;
         this.Date = Date;

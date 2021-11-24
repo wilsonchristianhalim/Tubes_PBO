@@ -14,8 +14,8 @@ public class Post extends User{
     private String Post_Content;
     private String Date_Post;
 
-    public Post(String ID_Post, String Post_Content, String Date_Post, String Username, String PW_User, String Name, String Email, int Age) {
-        super(Username, PW_User, Name, Email, Age);
+    public Post(String ID_Post, String Post_Content, String Date_Post, String Username, String PW_User, String Name, String Email, int Age, int tipePerson) {
+        super(Username, PW_User, Name, Email, Age, tipePerson);
         this.ID_Post = ID_Post;
         this.Post_Content = Post_Content;
         this.Date_Post = Date_Post;
