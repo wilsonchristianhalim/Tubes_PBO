@@ -10,7 +10,7 @@ import javax.swing.*;
 import Model.Type.*;
 
 public class FormLogin extends JFrame implements ActionListener{
-    JFrame loginPage = new JFrame("Form Login Page");
+    JFrame loginPage = new JFrame("Form Login");
     JLabel title,usernameLabel, passwordLabel;
     JTextField username;
     JPasswordField password;
