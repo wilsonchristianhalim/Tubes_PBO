@@ -62,10 +62,6 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
-        new MenuMatch();
-
-//        DataBaseHandler c = new DataBaseHandler();
-//        
-//        c.connect();
+        menu();
     }
 }

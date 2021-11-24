@@ -19,9 +19,6 @@ public class Team extends DivisiGame{
         this.Nama_Team = Nama_Team;
     }
 
-    public Team() {
-    }
-
     public String getID_Team() {
         return ID_Team;
     }
