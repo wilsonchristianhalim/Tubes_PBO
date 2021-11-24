@@ -18,19 +18,17 @@ public class ShowTitleNews {
     private JComboBox titleNews;
     private JButton submit, back;
     
-    public void PrintNews(){
+    public void ShowTitleNews(){
         MenuNews menunews = new MenuNews();
         //Frame
         JFrame news = new JFrame("Title News");
         news.setSize(500, 600);
         
         //Isi Frame
-        ArrayList<News> titleList = Controller.getTitleNews();
-        String[] title = new String[titleList.size()];
-        for (int i = 0; i < titleList.size() ; i++) {
-            title[i] = titleList.get(i).getTitle_News();
+        for (int i = 0; i < Controller.getTitleNews().size(); i++) {
+          titleNews.addItem(Controller.getTitleNews().get(i).getTitle_News());
         }
-        titleNews = new JComboBox<>(title);
+        titleNews = new JComboBox<>();
         titleNews.setBounds(50, 10, 200, 30);
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
@@ -40,9 +38,9 @@ public class ShowTitleNews {
         });
         back.setBounds(50, 50, 100, 30);
         submit = new JButton("Submit");
-        back.addActionListener(new ActionListener() {
+        submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //isi
+                JOptionPane.showMessageDialog(null, Controller.SeeNews(titleNews.getName()));
             }
         });
         submit.setBounds(260, 50, 100, 30);

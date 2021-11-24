@@ -22,6 +22,7 @@ public class MenuNews {
     public static Controller controller = new Controller();
 
     public void MenuNews() {
+        ShowTitleNews show = new ShowTitleNews();
         MainMenu main = new MainMenu();
         AddNews add = new AddNews();
         //Frame
@@ -32,7 +33,7 @@ public class MenuNews {
         showNews = new JButton("Show News");
         showNews.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            //isi
+            show.ShowTitleNews();
             }
         });
         showNews.setBounds(50, 10, 150, 30);
