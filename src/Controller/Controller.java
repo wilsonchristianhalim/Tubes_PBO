@@ -41,7 +41,6 @@ public class Controller {
             MessageDigest md = MessageDigest.getInstance("MD5");
         
             byte[] messageDigest = md.digest(input.getBytes());
-
             BigInteger no = new BigInteger(1, messageDigest);
             
             String hashtext = no.toString(16);
@@ -53,6 +52,26 @@ public class Controller {
             throw new RuntimeException(e);
         }          
     }
+
+    public static boolean Register (User user){
+        conn.connect();
+        String query = "INSERT INTO user VALUES(?,?,?,?,?)";
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getPW_User());
+            stmt.setString(3, user.getName());
+            stmt.setString(4, user.getEmail());
+            stmt.setInt(5, user.getAge());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Berhasil Register");
+            return (true);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal Register");
+            e.printStackTrace();
+            return (false);
+        }
+    }   
     
     public static ArrayList<News> SeeNews() {
         ArrayList<News> news = new ArrayList<>();
@@ -226,14 +245,14 @@ public class Controller {
                         person = new User();
                         break;
                 }
-                person.setIdPerson(rs.getInt("idPerson"));
-                person.setUsername(rs.getString("username"));
-                person.setPassword(rs.getString("password"));
-                person.setNama(rs.getString("nama"));
-                person.setAlamat(rs.getString("alamat"));
-                person.setNoKTP(rs.getString("noKTP"));
-                person.setNoHP(rs.getString("noHP"));
-                person.setEmail(rs.getString("email"));
+//                person.setIdPerson(rs.getInt("idPerson"));
+//                person.setUsername(rs.getString("username"));
+//                person.setPassword(rs.getString("password"));
+//                person.setNama(rs.getString("nama"));
+//                person.setAlamat(rs.getString("alamat"));
+//                person.setNoKTP(rs.getString("noKTP"));
+//                person.setNoHP(rs.getString("noHP"));
+//                person.setEmail(rs.getString("email"));
             }
         }catch(SQLException e){
             e.printStackTrace();
