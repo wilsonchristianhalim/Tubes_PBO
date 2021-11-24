@@ -16,7 +16,9 @@ public class Main {
 //        login.FormLogin();
 //          MenuNews news = new MenuNews();
 //          news.MenuNews();
-                  MenuPartner test = new MenuPartner();
-                  test.MenuPartner();
+//                  MenuPartner test = new MenuPartner();
+//                  test.MenuPartner();
+
+            new MenuMatch();
     }
 }
