@@ -112,6 +112,24 @@ public class Controller {
             return (false);
         }
     }
+    
+    public static ArrayList<News> getTitleNews() {
+        ArrayList<News> title = new ArrayList<>();
+        conn.connect();
+        String query = "SELECT * FROM news";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                News news1 = new News();
+                news1.setTitle_News(rs.getString("Title_News"));
+                title.add(news1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (category);
+    }
 
     public static ArrayList<Contact> SeeContact() {
         ArrayList<Contact> contact = new ArrayList<>();
