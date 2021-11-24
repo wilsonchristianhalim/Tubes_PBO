@@ -19,6 +19,7 @@ public class MainMenu {
 private JButton divisi, match, news, company, forum;
 
     public void MainMenu(){
+        
         Company comp = new Company();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);

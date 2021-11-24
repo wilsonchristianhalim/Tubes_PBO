@@ -74,7 +74,7 @@ public class Controller {
         }
     }   
     
-    public static ArrayList<News> SeeNews() {
+    public static ArrayList<News> SeeNews(String titleNews) {
         ArrayList<News> news = new ArrayList<>();
         conn.connect();
         String query = "SELECT * FROM news";
@@ -187,10 +187,6 @@ public class Controller {
         }
     }
     
-    public String [][] ArrayContact(){
-//        String contact[][] = new String[][2];
-        
-    }
 
     public static ArrayList<Partner> SeePartner() {
         ArrayList<Partner> partner = new ArrayList<>();
