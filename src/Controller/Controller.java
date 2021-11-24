@@ -128,7 +128,7 @@ public class Controller {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return (category);
+        return (title);
     }
 
     public static ArrayList<Contact> SeeContact() {
