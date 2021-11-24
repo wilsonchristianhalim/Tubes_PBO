@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import Model.Type.*;
 
 public class FormLogin extends JFrame implements ActionListener{
     JFrame loginPage = new JFrame("Form Login");

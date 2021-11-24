@@ -55,7 +55,7 @@ public class Controller {
 
     public static boolean Register (User user){
         conn.connect();
-        String query = "INSERT INTO user VALUES(?,?,?,?,?)";
+        String query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
             stmt.setString(1, user.getUsername());
@@ -63,6 +63,7 @@ public class Controller {
             stmt.setString(3, user.getName());
             stmt.setString(4, user.getEmail());
             stmt.setInt(5, user.getAge());
+            stmt.setInt(6, 0);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Berhasil Register");
             return (true);
