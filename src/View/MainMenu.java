@@ -16,22 +16,23 @@ import java.awt.event.ActionListener;
  * @author Wilson
  */
 public class MainMenu {
-private JButton divisi, match, news, company, forum, logout;
 
-    public void MainMenu(){
+    private JButton divisi, match, news, company, forum, logout;
+
+    public void MainMenu() {
         FormLogin login = new FormLogin();
         MenuNews newss = new MenuNews();
         Company comp = new Company();
         MenuMatch matchh = new MenuMatch();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
-        
+
         //Isi Frame
         divisi = new JButton("Menu Divisi Game");
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         match = new JButton("Match");
@@ -39,12 +40,12 @@ private JButton divisi, match, news, company, forum, logout;
         match.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< Updated upstream
+
                 matchh.MenuMatch();
-=======
+
                 main.dispose();
                 new MenuMatch();
->>>>>>> Stashed changes
+
             }
         });
         news = new JButton("News");
@@ -79,7 +80,7 @@ private JButton divisi, match, news, company, forum, logout;
                 }
             }
         });
-        
+
         main.add(divisi);
         main.add(match);
         main.add(news);

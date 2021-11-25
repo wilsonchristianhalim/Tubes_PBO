@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 //        FormLogin login = new FormLogin();
 //        login.FormLogin();
-           Valorant valo = new Valorant();
-           valo.Valorant();
+          menuDivisiGames tes = new menuDivisiGames();
+          tes.menuDivisiGames();
     }
 }

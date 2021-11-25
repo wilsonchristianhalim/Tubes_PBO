@@ -10,10 +10,14 @@ public class menuDivisiGames implements ActionListener{
     JFrame layoutDivisi = new JFrame("Menu Divisi Games");
     JLabel title;
     JPanel buttonPanel;
-    JButton bValorant,bMobileLagend, bPubg, logOut;
+    JButton bValorant,bMobileLegend, bPubg, logOut;
+    MainMenu main = new MainMenu();
+    Valorant val = new Valorant();
+    MobileLegend ml = new MobileLegend();
+    Pubg pubg = new Pubg();
     
     public void menuDivisiGames(){
-        MainMenu main = new MainMenu();
+
         layoutDivisi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         layoutDivisi.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
@@ -28,10 +32,10 @@ public class menuDivisiGames implements ActionListener{
         bValorant.addActionListener((ActionListener) this);
         bValorant.setFont(StyleSheet.buttonFont);
         
-        bMobileLagend = new JButton("Mobile Lagend");
-        bMobileLagend.setBounds(400, 50, 200, 70);
-        bMobileLagend.addActionListener((ActionListener) this);
-        bMobileLagend.setFont(StyleSheet.buttonFont);
+        bMobileLegend = new JButton("Mobile Legend");
+        bMobileLegend.setBounds(400, 50, 200, 70);
+        bMobileLegend.addActionListener((ActionListener) this);
+        bMobileLegend.setFont(StyleSheet.buttonFont);
         
         bPubg = new JButton("PUBG");
         bPubg.setBounds(700, 50, 200, 70);
@@ -44,7 +48,7 @@ public class menuDivisiGames implements ActionListener{
         logOut.setFont(StyleSheet.buttonFont);
         
         buttonPanel.add(bValorant);
-        buttonPanel.add(bMobileLagend);
+        buttonPanel.add(bMobileLegend);
         buttonPanel.add(bPubg);
         buttonPanel.add(logOut);
         buttonPanel.setBounds(0, (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/5,(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth(),(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/5);
@@ -62,15 +66,15 @@ public class menuDivisiGames implements ActionListener{
         switch(buttonClick){
             case "Valorant" :
                 layoutDivisi.dispose();
-                new Valorant();
+                val.Valorant();
                 break;
-            case "Mobile Lagend":
+            case "Mobile Legend":
                 layoutDivisi.dispose();
-                new MobileLagend();
+                ml.MobileLegend();
                 break;
             case "PUBG":
                 layoutDivisi.dispose();
-                new Pubg();
+                pubg.Pubg();
                 break;
             case "Log Out":
                 int jawab = JOptionPane.showOptionDialog(null, 
