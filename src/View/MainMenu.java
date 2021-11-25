@@ -24,6 +24,7 @@ public class MainMenu {
         MenuNews newss = new MenuNews();
         Company comp = new Company();
         MenuMatch matchh = new MenuMatch();
+        menuDivisiGames div = new menuDivisiGames();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
 
@@ -32,7 +33,7 @@ public class MainMenu {
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                div.menuDivisiGames();
             }
         });
         match = new JButton("Match");
@@ -40,9 +41,7 @@ public class MainMenu {
         match.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 matchh.MenuMatch();
-
                 main.dispose();
                 new MenuMatch();
 
