@@ -16,10 +16,10 @@ import java.awt.event.ActionListener;
  * @author Wilson
  */
 public class MainMenu {
-private JButton divisi, match, news, company, forum;
+private JButton divisi, match, news, company, forum, logout;
 
     public void MainMenu(){
-        
+        FormLogin login = new FormLogin();
         MenuNews newss = new MenuNews();
         Company comp = new Company();
         MenuMatch matchh = new MenuMatch();
@@ -62,12 +62,24 @@ private JButton divisi, match, news, company, forum;
                 //isi
             }
         });
+        logout = new JButton("LogOut");
+        logout.setBounds(50, 210, 100, 30);
+        logout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int jawab = JOptionPane.showOptionDialog(null, "LogOut now?", "LogOut", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+                if (jawab == JOptionPane.YES_OPTION) {
+                    main.dispose();
+                    login.FormLogin();
+                }
+            }
+        });
         
         main.add(divisi);
         main.add(match);
         main.add(news);
         main.add(company);
         main.add(forum);
+        main.add(logout);
         main.setLayout(null);
         main.setVisible(true);
     }
