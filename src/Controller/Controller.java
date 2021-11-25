@@ -18,17 +18,17 @@ import java.security.NoSuchAlgorithmException;
 public class Controller {
 
     static DataBaseHandler conn = new DataBaseHandler();
-    
+
     public static boolean cekPassword(String username, String password) {
         ArrayList<User> persons = new ArrayList<>();
         conn.connect();
         String query = "SELECT * FROM user WHERE username='" + username + "'";
         boolean isMatch = false;
-        try{
+        try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-            while(rs.next()){
-                if(rs.getString("PW_User").equals((password))){
+            while (rs.next()) {
+                if (rs.getString("PW_User").equals((password))) {
                     isMatch = true;
                 }
             }
@@ -37,8 +37,8 @@ public class Controller {
         }
         return isMatch;
     }
-    
-    public static boolean Register (User user){
+
+    public static boolean Register(User user) {
         conn.connect();
         String query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
         try {
@@ -57,9 +57,9 @@ public class Controller {
             e.printStackTrace();
             return (false);
         }
-    }   
-    
-    public static ArrayList<News>SeeNews(int id) {
+    }
+
+    public static ArrayList<News> SeeNews(int id) {
         ArrayList<News> news = new ArrayList<>();
         conn.connect();
         String query = "SELECT * FROM news Where ID_News='" + id + "'";
@@ -90,15 +90,15 @@ public class Controller {
             stmt.setString(3, news1.getContent_News());
             stmt.setString(4, news1.getDate_News());
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
     }
-    
+
     public static ArrayList<News> getTitleNews() {
         ArrayList<News> title = new ArrayList<>();
         conn.connect();
@@ -145,10 +145,10 @@ public class Controller {
             stmt.setString(1, contacts.getID_Contact());
             stmt.setString(2, contacts.getContact_Name());
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
@@ -159,20 +159,19 @@ public class Controller {
         String query = "DELETE FROM contact WHERE Contact_Name='" + name + "'";
         try {
             Statement stmt = conn.con.createStatement();
-            int i = stmt.executeUpdate(query);  
+            int i = stmt.executeUpdate(query);
             if (i == 0) {
-                JOptionPane.showMessageDialog(null,"Gagal Dihapus");          
-            }else{
-                JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+                JOptionPane.showMessageDialog(null, "Gagal Dihapus");
+            } else {
+                JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
             }
             return (true);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Gagal Dihapus");
+            JOptionPane.showMessageDialog(null, "Gagal Dihapus");
             e.printStackTrace();
             return (false);
         }
     }
-    
 
     public static ArrayList<Partner> SeePartner() {
         ArrayList<Partner> partner = new ArrayList<>();
@@ -201,10 +200,10 @@ public class Controller {
             stmt.setString(1, partners.getID_Partner());
             stmt.setString(2, partners.getPartner_Name());
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Berhasil Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Berhasil Ditambahkan");
             return (true);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Gagal Ditambahkan");
+            JOptionPane.showMessageDialog(null, "Gagal Ditambahkan");
             e.printStackTrace();
             return (false);
         }
@@ -217,13 +216,13 @@ public class Controller {
             Statement stmt = conn.con.createStatement();
             int i = stmt.executeUpdate(query);
             if (i == 0) {
-                JOptionPane.showMessageDialog(null,"Gagal Dihapus");          
-            }else{
-                JOptionPane.showMessageDialog(null,"Berhasil Dihapus");
+                JOptionPane.showMessageDialog(null, "Gagal Dihapus");
+            } else {
+                JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
             }
             return (true);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Gagal Dihapus");
+            JOptionPane.showMessageDialog(null, "Gagal Dihapus");
             e.printStackTrace();
             return (false);
         }
@@ -233,12 +232,12 @@ public class Controller {
         User person = null;
         conn.connect();
         String query = "SELECT * FROM User WHERE username='" + uname + "'";
-        try{
+        try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-            while(rs.next()){
+            while (rs.next()) {
                 int tipePerson = rs.getInt("tipePerson");
-                switch(tipePerson){
+                switch (tipePerson) {
                     case 0:
                         person = new User();
                         person.setTipePerson(0);
@@ -257,24 +256,24 @@ public class Controller {
                 person.setEmail(rs.getString("email"));
                 person.setAge(rs.getInt("age"));
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return (person);
     }
-    
+
     public static boolean AddNewMatch(Match newMatch, int idTeam) {
         conn.connect();
         String query = "INSERT INTO matchs VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
-            stmt.setString(1, null);            
+            stmt.setString(1, null);
             stmt.setString(2, newMatch.getEventMatch());
-            stmt.setInt(3,idTeam);
+            stmt.setInt(3, idTeam);
             stmt.setString(4, newMatch.getLawan());
             stmt.setString(5, newMatch.getDateMatch());
             stmt.setString(6, newMatch.getResult());
-            
+
             stmt.executeUpdate();
             return (true);
         } catch (SQLException e) {
@@ -282,11 +281,11 @@ public class Controller {
             return (false);
         }
     }
-    
+
     public static boolean DeleteMatch(int id_match) {
         conn.connect();
         String query = "DELETE FROM matchs WHERE id_match='" + id_match + "'";
-        
+
         try {
             Statement stmt = conn.con.createStatement();
             stmt.executeUpdate(query);
@@ -296,15 +295,16 @@ public class Controller {
             return (false);
         }
     }
+
     public static boolean updateMatch(Match newDataMatch) {
         conn.connect();
         String query = "UPDATE matchs SET event_match='" + newDataMatch.getEventMatch() + "', "
                 + "id_team='" + newDataMatch.getTeam() + "', "
                 + "lawan='" + newDataMatch.getLawan() + "' "
-                + "date_match='" + newDataMatch.getDateMatch()+ "' "
-                + "result='" + newDataMatch.getResult()+ "' "
-                + "WHERE id_match='" + newDataMatch.getIdMatch()+ "'";
-        
+                + "date_match='" + newDataMatch.getDateMatch() + "' "
+                + "result='" + newDataMatch.getResult() + "' "
+                + "WHERE id_match='" + newDataMatch.getIdMatch() + "'";
+
         try {
             Statement stmt = conn.con.createStatement();
             stmt.executeUpdate(query);
@@ -314,14 +314,14 @@ public class Controller {
             return (false);
         }
     }
-    
-    public static ArrayList<Match> getAllMatch() { 
+
+    public static ArrayList<Match> getAllMatch() {
         conn.connect();
         ArrayList<Match> matchs = new ArrayList<>();
         String query = "SELECT * FROM `matchs`";
         try {
             Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery(query); 
+            ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 Match match = new Match();
                 match.setIdMatch(rs.getInt("id_match"));
@@ -337,14 +337,14 @@ public class Controller {
         }
         return (matchs);
     }
-    
+
     public static ArrayList<Match> getAllMatchByIdTeam(int idTeam) {
         conn.connect();
         ArrayList<Match> matchs = new ArrayList<>();
         String query = "SELECT * FROM `matchs` WHERE id_team = '" + idTeam + "';";
         try {
             Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery(query); 
+            ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 Match match = new Match();
                 match.setIdMatch(rs.getInt("id_match"));
@@ -360,11 +360,11 @@ public class Controller {
         }
         return (matchs);
     }
-    
+
     public static ArrayList<Team> getAllTeam() {
         conn.connect();
         ArrayList<Team> teams = new ArrayList<>();
-        String query = "SELECT * FROM team " ;
+        String query = "SELECT * FROM team ";
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -379,25 +379,89 @@ public class Controller {
         }
         return (teams);
     }
-    
-    public static ArrayList<Player> valorant() { 
+
+    public static ArrayList<Player> valorant() {
         conn.connect();
         ArrayList<Player> valorant = new ArrayList<>();
-        String query = "SELECT * FROM Player Where Nama_Team = 'Valorant'";
+        String query = "SELECT * FROM player Where Nama_Team = 'Valorant'";
         try {
             Statement stmt = conn.con.createStatement();
-            ResultSet rs = stmt.executeQuery(query); 
+            ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 Player valo = new Player();
                 valo.setUsername(rs.getString("Username"));
                 valo.setNama(rs.getString("Nama"));
                 valo.setUmur(rs.getInt("Umur"));
-                valo.setTanggalLahir(rs.getString("Tanggal Lahir"));
+                valo.setTanggalLahir(rs.getString("TanggalLahir"));
                 valorant.add(valo);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return (valorant);
+    }
+
+    public static ArrayList<Player> ML() {
+        conn.connect();
+        ArrayList<Player> ML = new ArrayList<>();
+        String query = "SELECT * FROM player Where Nama_Team = 'Mobile Legend'";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Player MLs = new Player();
+                MLs.setUsername(rs.getString("Username"));
+                MLs.setNama(rs.getString("Nama"));
+                MLs.setUmur(rs.getInt("Umur"));
+                MLs.setTanggalLahir(rs.getString("TanggalLahir"));
+                ML.add(MLs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (ML);
+    }
+
+    public static ArrayList<Player> PUBG() {
+        conn.connect();
+        ArrayList<Player> PUBG = new ArrayList<>();
+        String query = "SELECT * FROM player Where Nama_Team = 'PUBG'";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Player pubg = new Player();
+                pubg.setUsername(rs.getString("Username"));
+                pubg.setNama(rs.getString("Nama"));
+                pubg.setUmur(rs.getInt("Umur"));
+                pubg.setTanggalLahir(rs.getString("TanggalLahir"));
+                PUBG.add(pubg);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (PUBG);
+    }
+    
+    public static boolean AddPlayer(Player newPlayer, int ID_Player) {
+
+        conn.connect();
+
+        String query = "INSERT INTO `Player`( `Username`, `Nama`, `Umur`, `TanggalLahir`) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, null);
+            stmt.setString(2, newPlayer.getUsername());
+            stmt.setString(3, newPlayer.getNama());
+            stmt.setInt(4, newPlayer.getUmur());
+            stmt.setString(5, newPlayer.getTanggalLahir());
+
+            stmt.executeUpdate();
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
     }
 }

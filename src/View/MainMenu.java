@@ -16,22 +16,24 @@ import java.awt.event.ActionListener;
  * @author Wilson
  */
 public class MainMenu {
-private JButton divisi, match, news, company, forum;
 
-    public void MainMenu(){
-        
+    private JButton divisi, match, news, company, forum, logout;
+
+    public void MainMenu() {
+        FormLogin login = new FormLogin();
         MenuNews newss = new MenuNews();
         Company comp = new Company();
         MenuMatch matchh = new MenuMatch();
+        menuDivisiGames div = new menuDivisiGames();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
-        
+
         //Isi Frame
         divisi = new JButton("Menu Divisi Game");
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+                div.menuDivisiGames();
             }
         });
         match = new JButton("Match");
@@ -41,6 +43,8 @@ private JButton divisi, match, news, company, forum;
             public void actionPerformed(ActionEvent e) {
                 matchh.MenuMatch();
                 main.dispose();
+                new MenuMatch();
+
             }
         });
         news = new JButton("News");
@@ -64,12 +68,24 @@ private JButton divisi, match, news, company, forum;
                 //isi
             }
         });
-        
+        logout = new JButton("LogOut");
+        logout.setBounds(50, 210, 100, 30);
+        logout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int jawab = JOptionPane.showOptionDialog(null, "LogOut now?", "LogOut", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+                if (jawab == JOptionPane.YES_OPTION) {
+                    main.dispose();
+                    login.FormLogin();
+                }
+            }
+        });
+
         main.add(divisi);
         main.add(match);
         main.add(news);
         main.add(company);
         main.add(forum);
+        main.add(logout);
         main.setLayout(null);
         main.setVisible(true);
     }

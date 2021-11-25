@@ -13,9 +13,8 @@ import View.*;
 public class Main {
     
     public static void main(String[] args) {
-//        FormLogin login = new FormLogin();
-//        login.FormLogin();
-           Valorant valo = new Valorant();
-           valo.Valorant();
+        FormLogin login = new FormLogin();
+        login.FormLogin();
+
     }
 }
