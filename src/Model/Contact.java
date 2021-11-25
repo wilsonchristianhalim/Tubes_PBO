@@ -41,7 +41,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "\nNomor Telepon : " + ID_Contact + "\nContact Name=" + Contact_Name + "";
+        return "Contact{" + "ID_Contact=" + ID_Contact + ", Contact_Name=" + Contact_Name + '}';
     }
 
 }
