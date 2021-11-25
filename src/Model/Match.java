@@ -7,57 +7,81 @@ package Model;
 
 /**
  *
- * @author Wilson
+ * @author Vito
  */
 public class Match {
-    private String ID_Match;
-    private String Match_Name;
-    private String Date_Match;
-    private String Result;
+    private int idMatch;
+    private String eventMatch;
+    private String team;
+    private String lawan;
+    private String dateMatch;
+    private String result;
 
-    public Match(String ID_Match, String Match_Name, String Date_Match, String Result) {
-        this.ID_Match = ID_Match;
-        this.Match_Name = Match_Name;
-        this.Date_Match = Date_Match;
-        this.Result = Result;
+    public Match() {
     }
 
-    public String getID_Match() {
-        return ID_Match;
+    public Match(int idMatch, String eventMatch, String team, String lawan, String dateMatch, String result) {
+        this.idMatch = idMatch;
+        this.eventMatch = eventMatch;
+        this.team = team;
+        this.lawan = lawan;
+        this.dateMatch = dateMatch;
+        this.result = result;
     }
 
-    public void setID_Match(String ID_Match) {
-        this.ID_Match = ID_Match;
+    public int getIdMatch() {
+        return idMatch;
     }
 
-    public String getMatch_Name() {
-        return Match_Name;
+    public void setIdMatch(int idMatch) {
+        this.idMatch = idMatch;
     }
 
-    public void setMatch_Name(String Match_Name) {
-        this.Match_Name = Match_Name;
+    public String getEventMatch() {
+        return eventMatch;
     }
 
-    public String getDate_Match() {
-        return Date_Match;
+    public void setEventMatch(String eventMatch) {
+        this.eventMatch = eventMatch;
     }
 
-    public void setDate_Match(String Date_Match) {
-        this.Date_Match = Date_Match;
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getLawan() {
+        return lawan;
+    }
+
+    public void setLawan(String lawan) {
+        this.lawan = lawan;
+    }
+
+    public String getDateMatch() {
+        return dateMatch;
+    }
+
+    public void setDateMatch(String dateMatch) {
+        this.dateMatch = dateMatch;
     }
 
     public String getResult() {
-        return Result;
+        return result;
     }
 
-    public void setResult(String Result) {
-        this.Result = Result;
+    public void setResult(String result) {
+        this.result = result;
     }
 
     @Override
     public String toString() {
-        return "Match{" + "ID_Match=" + ID_Match + ", Match_Name=" + Match_Name + ", Date_Match=" + Date_Match + ", Result=" + Result + '}';
+        return "Match{" + "idMatch=" + idMatch + ", eventMatch=" + eventMatch + ", team=" + team + ", lawan=" + lawan + ", dateMatch=" + dateMatch + ", result=" + result + '}';
     }
+
     
     
 }

@@ -13,6 +13,8 @@ public class Team extends DivisiGame{
     private String ID_Team;
     private String Nama_Team;
 
+    public Team(){
+    }
     public Team(String ID_Team, String Nama_Team, String Divisi) {
         super(Divisi);
         this.ID_Team = ID_Team;

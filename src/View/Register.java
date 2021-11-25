@@ -42,7 +42,7 @@ public class Register {
         email.setBounds(50, 130, 200, 30);
         insertEmail = new JTextField("");
         insertEmail.setBounds(260, 130, 200, 30);
-        age = new JLabel("Email");
+        age = new JLabel("age");
         age.setBounds(50, 170, 200, 30);
         insertAge = new JTextField("");
         insertAge.setBounds(260, 170, 200, 30);
@@ -52,9 +52,9 @@ public class Register {
                 login.FormLogin();
             }
         });
-        back.setBounds(50, 170, 100, 30);
+        back.setBounds(50, 210, 100, 30);
         register = new JButton("Register");
-        back.addActionListener(new ActionListener() {
+        register.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 User user = new User();
                 user.setUsername(insertUsername.getText());
@@ -66,7 +66,7 @@ public class Register {
                 login.FormLogin();
             }
         });
-        register.setBounds(350, 170, 100, 30);
+        register.setBounds(350, 210, 100, 30);
         
         reg.add(username);
         reg.add(insertUsername);
@@ -76,6 +76,8 @@ public class Register {
         reg.add(insertName);
         reg.add(email);
         reg.add(insertEmail);
+        reg.add(age);
+        reg.add(insertAge);
         reg.add(back);
         reg.add(register);
         reg.setLayout(null);

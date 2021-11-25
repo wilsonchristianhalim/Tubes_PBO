@@ -19,10 +19,10 @@ public class AddNews {
         addnews.setSize(500, 600);
         
         //Isi Frame
-        id=new JLabel("ID News");
-        id.setBounds(50, 10, 200, 30);
-        isiID = new JTextField("");
-        isiID.setBounds(260, 10, 200, 30);
+//        id=new JLabel("ID News");
+//        id.setBounds(50, 10, 200, 30);
+//        isiID = new JTextField("");
+//        isiID.setBounds(260, 10, 200, 30);
         title = new JLabel("Title");
         title.setBounds(50, 50, 200, 30);
         isiTitle= new JTextField("");
@@ -46,7 +46,6 @@ public class AddNews {
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 News news = new News();
-                news.setID_News(isiID.getText());
                 news.setTitle_News(isiTitle.getText());
                 news.setContent_News(isiContent.getText());
                 news.setDate_News(isiDate.getText());
@@ -56,8 +55,6 @@ public class AddNews {
         });
         add.setBounds(350, 230, 100, 30);
         
-        addnews.add(id);
-        addnews.add(isiID);
         addnews.add(title);
         addnews.add(isiTitle);
         addnews.add(content);

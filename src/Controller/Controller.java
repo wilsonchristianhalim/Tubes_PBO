@@ -1,8 +1,6 @@
 package Controller;
 
 import Model.*;
-import static Model.Type.ADMIN;
-import static Model.Type.USER;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -20,13 +18,13 @@ public class Controller {
     public static boolean cekPassword(String username, String password) {
         ArrayList<User> persons = new ArrayList<>();
         conn.connect();
-        String query = "SELECT * FROM person WHERE username='" + username + "'";
+        String query = "SELECT * FROM user WHERE username='" + username + "'";
         boolean isMatch = false;
         try{
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
-                if(rs.getString("password").equals(getMd5(password))){
+                if(rs.getString("PW_User").equals((password))){
                     isMatch = true;
                 }
             }
@@ -36,23 +34,6 @@ public class Controller {
         return isMatch;
     }
     
-    private static String getMd5(String input) {
-        try{
-            MessageDigest md = MessageDigest.getInstance("MD5");
-        
-            byte[] messageDigest = md.digest(input.getBytes());
-            BigInteger no = new BigInteger(1, messageDigest);
-            
-            String hashtext = no.toString(16);
-            while(hashtext.length() < 32){
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }          
-    }
-
     public static boolean Register (User user){
         conn.connect();
         String query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
@@ -74,16 +55,16 @@ public class Controller {
         }
     }   
     
-    public static ArrayList<News> SeeNews(String titleNews) {
+    public static ArrayList<News>SeeNews(int id) {
         ArrayList<News> news = new ArrayList<>();
         conn.connect();
-        String query = "SELECT * FROM news";
+        String query = "SELECT * FROM news Where ID_News='" + id + "'";
         try {
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 News news1 = new News();
-                news1.setID_News(rs.getString("ID_News"));
+                news1.setID_News(rs.getInt("ID_News"));
                 news1.setTitle_News(rs.getString("Title_News"));
                 news1.setContent_News(rs.getString("Content_News"));
                 news1.setDate_News(rs.getString("Date_News"));
@@ -97,10 +78,10 @@ public class Controller {
 
     public static boolean AddNews(News news1) {
         conn.connect();
-        String query = "INSERT INTO news (ID_News, Title_News, Content_News, Date_News)VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO news (Title_News, Content_News, Date_News)VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
-            stmt.setString(1, news1.getID_News());
+            stmt.setInt(1, news1.getID_News());
             stmt.setString(2, news1.getTitle_News());
             stmt.setString(3, news1.getContent_News());
             stmt.setString(4, news1.getDate_News());
@@ -123,6 +104,7 @@ public class Controller {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 News news1 = new News();
+                news1.setID_News(rs.getInt("ID_News"));
                 news1.setTitle_News(rs.getString("Title_News"));
                 title.add(news1);
             }
@@ -266,7 +248,7 @@ public class Controller {
                         break;
                 }
                 person.setUsername(rs.getString("username"));
-                person.setPW_User(rs.getString("password"));
+                person.setPW_User(rs.getString("PW_User"));
                 person.setName(rs.getString("name"));
                 person.setEmail(rs.getString("email"));
                 person.setAge(rs.getInt("age"));
@@ -275,5 +257,120 @@ public class Controller {
             e.printStackTrace();
         }
         return (person);
+    }
+    
+        public static boolean AddNewMatch(Match newMatch) {
+        conn.connect();
+        String query = "INSERT INTO `matchs`( `event_match`, `id_team`, `lawan`, `date_match`, `result`) VALUES (?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, newMatch.getEventMatch());
+            stmt.setString(2, newMatch.getTeam());
+            stmt.setString(3, newMatch.getLawan());
+            stmt.setString(4, newMatch.getDateMatch());
+            stmt.setString(4, newMatch.getResult());
+            stmt.executeUpdate();
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+    
+    public static boolean DeleteMatch(int id_match) {
+        conn.connect();
+        String query = "DELETE FROM matchs WHERE id_match='" + id_match + "'";
+        
+        try {
+            Statement stmt = conn.con.createStatement();
+            stmt.executeUpdate(query);
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+    public static boolean updateMatch(Match newDataMatch) {
+        conn.connect();
+        String query = "UPDATE matchs SET event_match='" + newDataMatch.getEventMatch() + "', "
+                + "id_team='" + newDataMatch.getTeam() + "', "
+                + "lawan='" + newDataMatch.getLawan() + "' "
+                + "date_match='" + newDataMatch.getDateMatch()+ "' "
+                + "result='" + newDataMatch.getResult()+ "' "
+                + "WHERE id_match='" + newDataMatch.getIdMatch()+ "'";
+        
+        try {
+            Statement stmt = conn.con.createStatement();
+            stmt.executeUpdate(query);
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
+    
+    public static ArrayList<Match> getAllMatch() { 
+        conn.connect();
+        ArrayList<Match> matchs = new ArrayList<>();
+        String query = "SELECT * FROM `matchs`";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query); 
+            while (rs.next()) {
+                Match match = new Match();
+                match.setIdMatch(rs.getInt("id_match"));
+                match.setEventMatch(rs.getString("event_match"));
+                match.setTeam(rs.getString("id_team"));
+                match.setLawan(rs.getString("lawan"));
+                match.setDateMatch(rs.getString("date_match"));
+                match.setResult(rs.getString("result"));
+                matchs.add(match);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (matchs);
+    }
+    
+    public static ArrayList<Match> getAllMatchByIdTeam(int idTeam) {
+        conn.connect();
+        ArrayList<Match> matchs = new ArrayList<>();
+        String query = "SELECT * FROM `matchs` WHERE id_team = '" + idTeam + "';";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query); 
+            while (rs.next()) {
+                Match match = new Match();
+                match.setIdMatch(rs.getInt("id_match"));
+                match.setEventMatch(rs.getString("event_match"));
+                match.setTeam(rs.getString("id_team"));
+                match.setLawan(rs.getString("lawan"));
+                match.setDateMatch(rs.getString("date_match"));
+                match.setResult(rs.getString("result"));
+                matchs.add(match);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (matchs);
+    }
+    
+    public static ArrayList<Team> getAllTeam() {
+        conn.connect();
+        ArrayList<Team> teams = new ArrayList<>();
+        String query = "SELECT * FROM team " ;
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Team tim = new Team();
+                tim.setID_Team(rs.getString("id_team"));
+                tim.setNama_Team(rs.getString("Nama_Team"));
+                teams.add(tim);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (teams);
     }
 }

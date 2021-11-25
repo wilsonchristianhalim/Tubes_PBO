@@ -2,7 +2,7 @@ package Model;
 
 public class News {
 
-    private String ID_News;
+    private int ID_News;
     private String Title_News;
     private String Content_News;
     private String Date_News;
@@ -11,18 +11,18 @@ public class News {
 
     }
 
-    public News(String ID_News, String Title_News, String Content_News, String Date_News) {
+    public News(int ID_News, String Title_News, String Content_News, String Date_News) {
         this.ID_News = ID_News;
         this.Title_News = Title_News;
         this.Content_News = Content_News;
         this.Date_News = Date_News;
     }
 
-    public String getID_News() {
+    public int getID_News() {
         return ID_News;
     }
 
-    public void setID_News(String ID_News) {
+    public void setID_News(int ID_News) {
         this.ID_News = ID_News;
     }
 
@@ -52,7 +52,7 @@ public class News {
 
     @Override
     public String toString() {
-        return "News{" + "ID_News=" + ID_News + ", Title_News=" + Title_News + ", Content_News=" + Content_News + ", Date_News=" + Date_News + '}';
+        return " "+ Title_News + "\n" + Content_News + "\n" + Date_News + " ";
     }
 
 }
