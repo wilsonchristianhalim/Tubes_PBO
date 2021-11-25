@@ -7,7 +7,6 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import Controller.*;
 /**
  *
  * @author Wilson
@@ -27,7 +26,7 @@ public class MenuPartner {
         showPartner = new JButton("Show Partner");
         showPartner.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,Controller.SeePartner());
+                //isi
             }
         });
         showPartner.setBounds(50, 10, 150, 30);

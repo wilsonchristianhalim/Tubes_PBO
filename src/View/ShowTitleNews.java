@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class ShowTitleNews {
     private JComboBox titleNews;
     private JButton submit, back;
-
     
     public void ShowTitleNews(){
         MenuNews menunews = new MenuNews();
@@ -26,11 +25,10 @@ public class ShowTitleNews {
         news.setSize(500, 600);
         
         //Isi Frame
-        
-        titleNews = new JComboBox<>();
         for (int i = 0; i < Controller.getTitleNews().size(); i++) {
-            titleNews.addItem(Controller.getTitleNews().get(i).getTitle_News());
+          titleNews.addItem(Controller.getTitleNews().get(i).getTitle_News());
         }
+        titleNews = new JComboBox<>();
         titleNews.setBounds(50, 10, 200, 30);
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
@@ -42,7 +40,7 @@ public class ShowTitleNews {
         submit = new JButton("Submit");
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, Controller.SeeNews(titleNews.getSelectedIndex()+1));             
+                JOptionPane.showMessageDialog(null, Controller.SeeNews(titleNews.getName()));
             }
         });
         submit.setBounds(260, 50, 100, 30);
