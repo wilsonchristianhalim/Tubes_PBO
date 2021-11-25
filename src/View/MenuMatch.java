@@ -65,7 +65,7 @@ public class MenuMatch implements InterfaceScreen{
         }
         
         cb = new JComboBox(arrTim);
-        cb.setBounds(50, 100, 400, 50);
+        cb.setBounds(50, 100, 250, 50);
         cb.setFont(font1);
         f.add(cb);
         

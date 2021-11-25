@@ -21,7 +21,7 @@ public class HasilMatch {
     JFrame f;
     
     public HasilMatch(ArrayList<Match> match) {
-        f = new JFrame();
+        f = new JFrame("Hasil Match");
         
         JPanel panel1 = new JPanel();
         panel1.setBounds(50,190,690,400);
