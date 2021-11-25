@@ -1,9 +1,12 @@
 
 package View;
 
+import Controller.*;
+import Model.Player;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Valorant{
@@ -28,11 +31,23 @@ public class Valorant{
         showProfile = new JButton("Show Profile");
         showProfile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                valo.Valorant();
+                ArrayList<Player> player = Controller.valorant();
+                String data[][] = new String[player.size()][4];
+                for (int i = 0; i < player.size(); i++) {
+                    data[i][0] = player.get(i).getUsername();
+                    data[i][1] = player.get(i).getNama();
+                    data[i][2] = String.valueOf(player.get(i).getUmur());
+                    data[i][3] = player.get(i).getTanggalLahir();
+                    
+                }
+                String column[] = {"Username", "Nama", "Umur", "Tanggal Lahir"};
+                JTable jt = new JTable(data, column);
             }
         });
         showProfile.setBounds(600, 50, 200,70);
         showProfile.setFont(StyleSheet.buttonFont);
+        
+        
         
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {

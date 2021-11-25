@@ -46,7 +46,7 @@ public class MenuMatch implements InterfaceScreen{
         
         title = new JLabel("Match");
         title.setFont(new Font("Arial", Font.BOLD, 50));
-        title.setBounds(320,5,200,100);
+        title.setBounds(50,5,200,100);
         f.add(title);
         
         adminButton = new JButton("Edit Data Match");
@@ -143,5 +143,14 @@ public class MenuMatch implements InterfaceScreen{
                 }
             }
         });
+        
+        adminButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.dispose();
+                new MatchSetByAdmin();
+            }
+        });
+        
     }
 }

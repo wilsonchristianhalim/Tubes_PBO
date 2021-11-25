@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2021 at 01:47 PM
+-- Generation Time: Nov 25, 2021 at 02:35 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -82,23 +82,38 @@ CREATE TABLE `divisigame` (
 --
 
 INSERT INTO `divisigame` (`Divisi`) VALUES
-('Dota2'),
-('MobileLegends'),
+('Mobile Legend'),
 ('PUBG'),
 ('Valorant');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `match`
+-- Table structure for table `matchs`
 --
 
-CREATE TABLE `match` (
-  `ID_Game` varchar(10) NOT NULL,
-  `Match_Name` varchar(20) NOT NULL,
-  `Date_Match` date NOT NULL,
-  `Result` varchar(4) NOT NULL
+CREATE TABLE `matchs` (
+  `id_match` int(12) NOT NULL,
+  `event_match` varchar(30) NOT NULL,
+  `id_team` varchar(30) NOT NULL,
+  `lawan` varchar(30) NOT NULL,
+  `date_match` varchar(30) NOT NULL,
+  `result` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `matchs`
+--
+
+INSERT INTO `matchs` (`id_match`, `event_match`, `id_team`, `lawan`, `date_match`, `result`) VALUES
+(12000, 'MPL SEASON 8 2021', '102', 'ONIC', '21 November 2021', 'WIN 2:1'),
+(12001, 'VALORANT ARENA SHOWDOWN', '101', 'EVOS', '21 November 2021', 'LOSE 0:2'),
+(12002, 'MPL SEASON 8 2021', '102', 'RRQ', '21 November 2021', 'WIN 2:1'),
+(12003, 'VALORANT ARENA SHOWDOWN', '101', 'ONIC', '23 November 2021', 'WIN 2:0'),
+(12004, 'PMPL SEASON 4 2021', '103', ' ', '23 November 2021', 'RANK 3'),
+(12005, 'MPL SEASON 8 2021', '102', 'EVOS', '22 November 2021', 'LOSE 0:2'),
+(12006, 'MPL SEASON 8 2021', '102', 'AURA', '23 November 2021', 'WIN 2:0'),
+(12007, 'PMPL SEASON 4 2021', '103', ' ', '23 November 2021', 'RANK 9');
 
 -- --------------------------------------------------------
 
@@ -140,13 +155,34 @@ INSERT INTO `partner` (`ID_Partner`, `Partner_Name`) VALUES
 --
 
 CREATE TABLE `player` (
-  `ID_Player` varchar(15) NOT NULL,
-  `ID_Team` varchar(10) NOT NULL,
-  `Username` varchar(20) NOT NULL,
-  `Name` varchar(30) NOT NULL,
-  `Age` varchar(3) NOT NULL,
-  `TTL` varchar(50) NOT NULL
+  `ID_Player` int(5) NOT NULL,
+  `Nama_Team` varchar(30) NOT NULL,
+  `Username` varchar(30) DEFAULT NULL,
+  `Nama` varchar(30) DEFAULT NULL,
+  `Umur` int(5) DEFAULT NULL,
+  `TanggalLahir` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `player`
+--
+
+INSERT INTO `player` (`ID_Player`, `Nama_Team`, `Username`, `Nama`, `Umur`, `TanggalLahir`) VALUES
+(1, 'Valorant', 'pije_10', 'Pije', 18, '11 Oktober 2001'),
+(2, 'Valorant', 'WL_201', 'William', 19, '12 November 2002'),
+(3, 'Valorant', 'Bill2020', 'Billy', 23, '31 Januari 1999'),
+(4, 'Valorant', 'Jeri493', 'Jeremy', 19, '10 November 2001'),
+(5, 'Valorant', 'Jasmike20', 'Jason', 20, '21 Agustus 1999'),
+(6, 'Mobile Legend', 'salamdaribinjai', 'Binjai', 25, '03 September 1995'),
+(7, 'Mobile Legend', 'Vit10', 'Vito', 18, '04 Juli 2002'),
+(8, 'Mobile Legend', 'mirrra', 'Mira', 17, '13 September 2004'),
+(9, 'Mobile Legend', 'sasuke23', 'Salim', 24, '17 Agustus 1996'),
+(10, 'Mobile Legend', 'meyes20', 'Mayo', 22, '24 Desember 1998'),
+(11, 'PUBG', 'rick1', 'Ricky', 22, '14 September 1999'),
+(12, 'PUBG', 'sofaraway', 'Fara', 20, '27 Oktober 2000'),
+(13, 'PUBG', 'ahhay_20', 'Atta', 20, '30 Juni 2000'),
+(14, 'PUBG', 'dankamu66', 'Dandi', 20, '07 April 1999'),
+(15, 'PUBG', 'milikmu67', 'Milea', 23, '09 Mei 2001');
 
 -- --------------------------------------------------------
 
@@ -169,9 +205,17 @@ CREATE TABLE `post` (
 
 CREATE TABLE `team` (
   `ID_Team` varchar(10) NOT NULL,
-  `Divisi` varchar(30) NOT NULL,
   `Nama_Team` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`ID_Team`, `Nama_Team`) VALUES
+('101', 'Valorant'),
+('102', 'Mobile Legend'),
+('103', 'PUBG');
 
 -- --------------------------------------------------------
 
@@ -224,10 +268,11 @@ ALTER TABLE `divisigame`
   ADD PRIMARY KEY (`Divisi`);
 
 --
--- Indexes for table `match`
+-- Indexes for table `matchs`
 --
-ALTER TABLE `match`
-  ADD PRIMARY KEY (`ID_Game`);
+ALTER TABLE `matchs`
+  ADD PRIMARY KEY (`id_match`),
+  ADD KEY `id_team` (`id_team`);
 
 --
 -- Indexes for table `news`
@@ -264,6 +309,32 @@ ALTER TABLE `team`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`Username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `matchs`
+--
+ALTER TABLE `matchs`
+  MODIFY `id_match` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12009;
+
+--
+-- AUTO_INCREMENT for table `player`
+--
+ALTER TABLE `player`
+  MODIFY `ID_Player` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `matchs`
+--
+ALTER TABLE `matchs`
+  ADD CONSTRAINT `matchs_ibfk_1` FOREIGN KEY (`id_team`) REFERENCES `team` (`ID_Team`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

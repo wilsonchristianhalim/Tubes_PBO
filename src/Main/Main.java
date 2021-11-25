@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Main;
+import Model.Player;
 import View.*;
 /**
  *
@@ -12,7 +13,9 @@ import View.*;
 public class Main {
     
     public static void main(String[] args) {
-        FormLogin login = new FormLogin();
-        login.FormLogin();
+//        FormLogin login = new FormLogin();
+//        login.FormLogin();
+           Valorant valo = new Valorant();
+           valo.Valorant();
     }
 }
