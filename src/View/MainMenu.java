@@ -19,8 +19,7 @@ public class MainMenu {
 private JButton divisi, match, news, company, forum;
 
     public void MainMenu(){
-        menuDivisiGames menudivisi = new menuDivisiGames();
-        MenuNews menunews = new MenuNews();
+        
         Company comp = new Company();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
@@ -30,7 +29,7 @@ private JButton divisi, match, news, company, forum;
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                menudivisi.menuDivisiGames();
+                
             }
         });
         match = new JButton("Match");
@@ -44,7 +43,7 @@ private JButton divisi, match, news, company, forum;
         news.setBounds(50, 90, 100, 30);
         news.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                menunews.MenuNews();
+                //isi
             }
         });
         company = new JButton("Company");
