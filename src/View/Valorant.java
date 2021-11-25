@@ -12,7 +12,7 @@ public class Valorant{
     JPanel buttonPanel;
     JButton showProfile, back;
     
-    public void Valorant(){//val
+    public void Valorant(){
         menuDivisiGames divisi = new menuDivisiGames();
         Valorant valo = new Valorant();
         layoutValorant.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
