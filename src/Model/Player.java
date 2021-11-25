@@ -25,6 +25,9 @@ public class Player extends Team{
         this.TanggalLahir = TanggalLahir;
     }
 
+    public Player() {
+    }
+
     public int getID_Player() {
         return ID_Player;
     }

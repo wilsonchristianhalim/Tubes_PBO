@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import View.Valorant;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -372,5 +373,26 @@ public class Controller {
             e.printStackTrace();
         }
         return (teams);
+    }
+    
+    public static ArrayList<Player> valorant() { 
+        conn.connect();
+        ArrayList<Player> valorant = new ArrayList<>();
+        String query = "SELECT * FROM Player Where Nama_Team = 'Valorant'";
+        try {
+            Statement stmt = conn.con.createStatement();
+            ResultSet rs = stmt.executeQuery(query); 
+            while (rs.next()) {
+                Player valo = new Player();
+                valo.setUsername(rs.getString("Username"));
+                valo.setNama(rs.getString("Nama"));
+                valo.setUmur(rs.getInt("Umur"));
+                valo.setTanggalLahir(rs.getString("Tanggal Lahir"));
+                valorant.add(valo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return (valorant);
     }
 }
