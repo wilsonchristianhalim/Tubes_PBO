@@ -43,6 +43,7 @@ public class AddNews {
         });
         back.setBounds(50, 230, 100, 30);
         add = new JButton("Add");
+        
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 News news = new News();
