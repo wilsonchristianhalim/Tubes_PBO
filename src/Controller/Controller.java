@@ -446,4 +446,26 @@ public class Controller {
         }
         return (PUBG);
     }
+    
+    public static boolean AddPlayer(Player newPlayer, int ID_Player) {
+
+        conn.connect();
+
+        String query = "INSERT INTO `Player`( `Username`, `Nama`, `Umur`, `TanggalLahir`) VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            PreparedStatement stmt = conn.con.prepareStatement(query);
+            stmt.setString(1, null);
+            stmt.setString(2, newPlayer.getUsername());
+            stmt.setString(3, newPlayer.getNama());
+            stmt.setInt(4, newPlayer.getUmur());
+            stmt.setString(5, newPlayer.getTanggalLahir());
+
+            stmt.executeUpdate();
+            return (true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return (false);
+        }
+    }
 }

@@ -9,10 +9,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class AddPlayer implements ActionListener{
-    JFrame layoutAddPlayer = new JFrame("Add Player");
-    JLabel title;
-    JPanel buttonPanel;
-    JButton add, cancel;
+    private JLabel ID_Player, ;
+    private JTextField isiID, isiNama;
+    private JButton add, back;
     
     public AddPlayer(){
         layoutAddPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
