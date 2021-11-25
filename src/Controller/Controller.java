@@ -1,13 +1,10 @@
 package Controller;
 
 import Model.*;
-<<<<<<< Updated upstream
 import View.Valorant;
-=======
 import static View.InterfaceScreen.MOBILE_LEGENDS;
 import static View.InterfaceScreen.PUBG;
 import static View.InterfaceScreen.VALORANT;
->>>>>>> Stashed changes
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -268,11 +265,7 @@ public class Controller {
     
     public static boolean AddNewMatch(Match newMatch, int idTeam) {
         conn.connect();
-<<<<<<< Updated upstream
-        String query = "INSERT INTO `matchs`( `event_match`, `id_team`, `lawan`, `date_match`, `result`) VALUES (?, ?, ?, ?, ?)";
-=======
         String query = "INSERT INTO matchs VALUES (?, ?, ?, ?, ?, ?)";
->>>>>>> Stashed changes
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
             stmt.setString(1, null);            

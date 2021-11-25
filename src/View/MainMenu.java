@@ -39,12 +39,8 @@ private JButton divisi, match, news, company, forum;
         match.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< Updated upstream
                 matchh.MenuMatch();
-=======
                 main.dispose();
-                new MenuMatch();
->>>>>>> Stashed changes
             }
         });
         news = new JButton("News");
