@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class FormLogin extends JFrame implements ActionListener{
+    MainMenu main = new MainMenu();
+    Register reg = new Register();
+    menuUser main2 = new menuUser();
     JFrame loginPage = new JFrame("Form Login");
     JLabel title,usernameLabel, passwordLabel;
     JTextField username;
@@ -82,7 +85,6 @@ public class FormLogin extends JFrame implements ActionListener{
         switch(buttonClick){
             case "Cancel" :
                 loginPage.dispose();
-                new MainMenu();
                 break;
             case "Login":
                 String uname = username.getText();
@@ -97,13 +99,10 @@ public class FormLogin extends JFrame implements ActionListener{
                     PersonManager.getInstance().setPerson(Controller.getUser(uname));
                     if (PersonManager.getInstance().getPerson().getTipePerson() == 1) {
                         loginPage.dispose();
-                        new MainMenu();
+                        main.MainMenu();
                     } else if (PersonManager.getInstance().getPerson().getTipePerson() == 0) {
                         loginPage.dispose();
-                        new menuUser();
-                    } else {
-                        loginPage.dispose();
-                        new MainMenu();
+                        main2.menuUser();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Insert username and password correctly!", "Alert", JOptionPane.WARNING_MESSAGE);
@@ -111,7 +110,7 @@ public class FormLogin extends JFrame implements ActionListener{
                 break;
             case "Click here to register new account":
                 loginPage.dispose();
-                new Register();
+                reg.Register();
                 break;
     }
 }}

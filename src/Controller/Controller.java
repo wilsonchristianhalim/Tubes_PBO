@@ -18,13 +18,13 @@ public class Controller {
     public static boolean cekPassword(String username, String password) {
         ArrayList<User> persons = new ArrayList<>();
         conn.connect();
-        String query = "SELECT * FROM person WHERE username='" + username + "'";
+        String query = "SELECT * FROM user WHERE username='" + username + "'";
         boolean isMatch = false;
         try{
             Statement stmt = conn.con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
-                if(rs.getString("password").equals(getMd5(password))){
+                if(rs.getString("PW_User").equals((password))){
                     isMatch = true;
                 }
             }
@@ -34,23 +34,6 @@ public class Controller {
         return isMatch;
     }
     
-    private static String getMd5(String input) {
-        try{
-            MessageDigest md = MessageDigest.getInstance("MD5");
-        
-            byte[] messageDigest = md.digest(input.getBytes());
-            BigInteger no = new BigInteger(1, messageDigest);
-            
-            String hashtext = no.toString(16);
-            while(hashtext.length() < 32){
-                hashtext = "0" + hashtext;
-            }
-            return hashtext;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }          
-    }
-
     public static boolean Register (User user){
         conn.connect();
         String query = "INSERT INTO user VALUES(?,?,?,?,?,?)";
@@ -265,7 +248,7 @@ public class Controller {
                         break;
                 }
                 person.setUsername(rs.getString("username"));
-                person.setPW_User(rs.getString("password"));
+                person.setPW_User(rs.getString("PW_User"));
                 person.setName(rs.getString("name"));
                 person.setEmail(rs.getString("email"));
                 person.setAge(rs.getInt("age"));
@@ -278,7 +261,7 @@ public class Controller {
     
         public static boolean AddNewMatch(Match newMatch) {
         conn.connect();
-        String query = "IINSERT INTO `matchs`( `event_match`, `id_team`, `lawan`, `date_match`, `result`) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `matchs`( `event_match`, `id_team`, `lawan`, `date_match`, `result`) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = conn.con.prepareStatement(query);
             stmt.setString(1, newMatch.getEventMatch());

@@ -13,6 +13,7 @@ public class MenuContactUser {
      private JButton showContact, back;
     
     public void MenuContactUser(){
+        CompanyUser comp = new CompanyUser();
         //Frame
         JFrame contact = new JFrame("Contact Menu");
         contact.setSize(300, 600);
@@ -28,11 +29,12 @@ public class MenuContactUser {
         back = new JButton("Back");
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new CompanyUser();
+                comp.CompanyUser();
             }
         });
         back.setBounds(5, 130, 150, 30);
         contact.add(showContact);
+        contact.add(back);
         contact.setLayout(null);
         contact.setVisible(true);
     }

@@ -12,13 +12,7 @@ import View.*;
 public class Main {
     
     public static void main(String[] args) {
-//        FormLogin login = new FormLogin();
-//        login.FormLogin();
-//          MenuNews news = new MenuNews();
-//          news.MenuNews();
-//                  MenuPartner test = new MenuPartner();
-//                  test.MenuPartner();
-
-            new MenuMatch();
+        FormLogin login = new FormLogin();
+        login.FormLogin();
     }
 }

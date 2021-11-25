@@ -55,8 +55,6 @@ public class AddNews {
         });
         add.setBounds(350, 230, 100, 30);
         
-        addnews.add(id);
-        addnews.add(isiID);
         addnews.add(title);
         addnews.add(isiTitle);
         addnews.add(content);

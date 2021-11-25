@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package View;
 
@@ -8,6 +9,9 @@ import Controller.Controller;
 import Model.Match;
 import Model.Team;
 import Model.User;
+import static View.InterfaceScreen.MOBILE_LEGENDS;
+import static View.InterfaceScreen.PUBG;
+import static View.InterfaceScreen.VALORANT;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -25,20 +29,20 @@ import javax.swing.JTable;
 
 /**
  *
- * @author Vito
+ * @author ANONYM
  */
-public class MenuMatch implements InterfaceScreen{
+public class MenuMatchUser implements InterfaceScreen{
     JFrame f ;
     JLabel title ;
     JComboBox cb ;
-    JButton showHasil , adminButton, back;
+    JButton showHasil, back;
     JPanel panel1;
     Font font1 ;
             
     User user ;
     Controller c = new Controller();
-    public void MenuMatch(){
-        MainMenu main = new MainMenu();
+    public void MenuMatchUser(){
+        menuUser main = new menuUser();
         f = new JFrame("Menu Match");
         
         f.setSize(800,600);
@@ -48,13 +52,7 @@ public class MenuMatch implements InterfaceScreen{
         title.setFont(new Font("Arial", Font.BOLD, 50));
         title.setBounds(320,5,200,100);
         f.add(title);
-        
-        adminButton = new JButton("Edit Data Match");
-        adminButton.setBounds(590, 20, 150, 50);
-        font1 = new Font(adminButton.getFont().getName(), adminButton.getFont().getStyle(), 15);
-        adminButton.setFont(font1);
-        f.add(adminButton);
-        
+              
         ArrayList<Team> teams = new ArrayList();
         teams = c.getAllTeam();
         String arrTim[] = new String[teams.size()];
@@ -79,12 +77,12 @@ public class MenuMatch implements InterfaceScreen{
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f.dispose();
-                main.MainMenu();
+                main.menuUser();
             }
         });
-        back.setBounds(100, 20, 150, 50);
+        back.setBounds(590, 20, 150, 50);
         f.add(back);
-       
+        
         panel1 = new JPanel();
         panel1.setBounds(50,190,690,400);
         panel1.setBackground(new Color(255, 188, 15, 255));
@@ -112,9 +110,7 @@ public class MenuMatch implements InterfaceScreen{
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
-        
-    
+                  
         showHasil.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,3 +141,5 @@ public class MenuMatch implements InterfaceScreen{
         });
     }
 }
+
+
