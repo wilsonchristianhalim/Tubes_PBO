@@ -1,30 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import Controller.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
-/**
- *
- * @author Wilson
- */
-public class MainMenu {
-private JButton divisi, match, news, company, forum;
 
-    public void MainMenu(){
-<<<<<<< HEAD
-        menuDivisiGames menudivisi = new menuDivisiGames();
-        MenuNews menunews = new MenuNews();
-=======
+public class menuUser {
+    private JButton divisi, match, news, company, forum;
+
+    public void menuUser(){
         
->>>>>>> parent of 366d65b (benerin function)
         Company comp = new Company();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
@@ -34,7 +21,7 @@ private JButton divisi, match, news, company, forum;
         divisi.setBounds(50, 10, 100, 30);
         divisi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                menudivisi.menuDivisiGames();
+                
             }
         });
         match = new JButton("Match");
@@ -48,18 +35,14 @@ private JButton divisi, match, news, company, forum;
         news.setBounds(50, 90, 100, 30);
         news.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-                menunews.MenuNews();
-=======
-                new MenuNews();
->>>>>>> parent of 366d65b (benerin function)
+                new MenuNewsUser();
             }
         });
         company = new JButton("Company");
         company.setBounds(50, 130, 100, 30);
         company.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                comp.Company();
+                new CompanyUser();
             }
         });
         forum = new JButton("Forum");
@@ -79,3 +62,5 @@ private JButton divisi, match, news, company, forum;
         main.setVisible(true);
     }
 }
+
+

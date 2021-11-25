@@ -14,7 +14,16 @@ public class Main {
     public static void main(String[] args) {
 //        FormLogin login = new FormLogin();
 //        login.FormLogin();
+<<<<<<< HEAD
           MenuNews news = new MenuNews();
           news.MenuNews();
+=======
+//          MenuNews news = new MenuNews();
+//          news.MenuNews();
+//                  MenuPartner test = new MenuPartner();
+//                  test.MenuPartner();
+
+            new MenuMatch();
+>>>>>>> parent of 366d65b (benerin function)
     }
 }
