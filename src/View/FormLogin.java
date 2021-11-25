@@ -97,17 +97,10 @@ public class FormLogin extends JFrame implements ActionListener{
                     PersonManager.getInstance().setPerson(Controller.getUser(uname));
                     if (PersonManager.getInstance().getPerson().getTipePerson() == 1) {
                         loginPage.dispose();
-<<<<<<< HEAD
                         new menuAdmin();
                     } else if (PersonManager.getInstance().getPerson().getTipePerson() == 0) {
                         loginPage.dispose();
                         new MainMenu();
-=======
-                        new MainMenu();
-                    } else if (PersonManager.getInstance().getPerson().getTipePerson() == 0) {
-                        loginPage.dispose();
-                        new menuUser();
->>>>>>> parent of 366d65b (benerin function)
                     } else {
                         loginPage.dispose();
                         new MainMenu();

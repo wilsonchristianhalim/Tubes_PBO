@@ -19,12 +19,8 @@ public class MainMenu {
 private JButton divisi, match, news, company, forum;
 
     public void MainMenu(){
-<<<<<<< HEAD
         menuDivisiGames menudivisi = new menuDivisiGames();
         MenuNews menunews = new MenuNews();
-=======
-        
->>>>>>> parent of 366d65b (benerin function)
         Company comp = new Company();
         JFrame main = new JFrame("Main Menu");
         main.setSize(300, 600);
@@ -48,11 +44,7 @@ private JButton divisi, match, news, company, forum;
         news.setBounds(50, 90, 100, 30);
         news.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 menunews.MenuNews();
-=======
-                new MenuNews();
->>>>>>> parent of 366d65b (benerin function)
             }
         });
         company = new JButton("Company");
